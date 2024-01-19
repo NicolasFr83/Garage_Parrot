@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\OpenninggarageRepository;
+use App\Repository\OpenningGarageRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: OpenninggarageRepository::class)]
-class Openninggarage
+#[ORM\Entity(repositoryClass: OpenningGarageRepository::class)]
+class OpenningGarage
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -24,44 +24,40 @@ class Openninggarage
     private ?string $openingday = null;
 
 
-    #[ORM\Column(length:2)]
+    #[ORM\Column(length:5)]
     #[Assert\NotBlank(message: 'Veuillez renseigner les heures d\'ouverture  du garage.')]
     #[Assert\Length(
-        min: 2, max: 2,
-        message:'L\'heure d\'ouverture doit contenir 2 chiffres',
+        min: 5, max: 5,
+        message:'L\'heure d\'ouverture doit contenir 5 chiffres',
     )]
-    #[Assert\Regex(pattern: '/^[0-9]+$/', message: 'L\'heure affichée ne doit contenir que des chiffres.')]
-    private ?int $openinghourmorning = null;
+    private ?string $openinghourmorning = null;
 
 
-    #[ORM\Column(length:2)]
+    #[ORM\Column(length:5)]
     #[Assert\NotBlank(message: 'Veuillez renseigner les heures de fermeture  du garage.')]
     #[Assert\Length(
-        min: 2, max: 2,
-        message:'L\'heure de fermeture doit contenir 2 chiffres',
+        min: 5, max: 5,
+        message:'L\'heure de fermeture doit contenir 5 chiffres',
     )]
-    #[Assert\Regex(pattern: '/^[0-9]+$/', message: 'L\'heure affichée ne doit contenir que des chiffres.')]
-    private ?int $closinghourmorning = null;
+    private ?string $closinghourmorning = null;
 
 
-    #[ORM\Column(length:2)]
+    #[ORM\Column(length:5)]
     #[Assert\NotBlank(message: 'Veuillez renseigner les heures d\'ouverture  du garage.')]
     #[Assert\Length(
-        min: 2, max: 2,
-        message:'L\'heure d\'ouverture doit contenir 2 chiffres',
+        min: 5, max: 5,
+        message:'L\'heure d\'ouverture doit contenir 5 chiffres',
     )]
-    #[Assert\Regex(pattern: '/^[0-9]+$/', message: 'L\'heure affiché ne doit contenir que des chiffres.')]
-    private ?int $openinghourafternoon = null;
+    private ?string $openinghourafternoon = null;
 
 
-    #[ORM\Column(length:2)]
+    #[ORM\Column(length:5)]
     #[Assert\NotBlank(message: 'Veuillez renseigner les heures de fermeture  du garage.')]
     #[Assert\Length(
-        min: 2, max: 2,
-        message:'L\'heure de fermeture doit contenir 2 chiffres',
+        min: 5, max: 5,
+        message:'L\'heure de fermeture doit contenir 5 chiffres',
     )]
-    #[Assert\Regex(pattern: '/^[0-9]+$/', message: 'L\'heure affichée ne doit contenir que des chiffres.')]
-    private ?int $closinghourafternoon = null;
+    private ?string $closinghourafternoon = null;
     
 
     #[ORM\ManyToOne(inversedBy: 'openninggarages')]
@@ -85,48 +81,48 @@ class Openninggarage
         return $this;
     }
 
-    public function getOpeninghourmorning(): ?int
+    public function getOpeninghourmorning(): ?string
     {
         return $this->openinghourmorning;
     }
 
-    public function setOpeninghourmorning(int $openinghourmorning): static
+    public function setOpeninghourmorning(string $openinghourmorning): static
     {
         $this->openinghourmorning = $openinghourmorning;
 
         return $this;
     }
 
-    public function getClosinghourmorning(): ?int
+    public function getClosinghourmorning(): ?string
     {
         return $this->closinghourmorning;
     }
 
-    public function setClosinghourmorning(int $closinghourmorning): static
+    public function setClosinghourmorning(string $closinghourmorning): static
     {
         $this->closinghourmorning = $closinghourmorning;
 
         return $this;
     }
 
-    public function getOpeninghourafternoon(): ?int
+    public function getOpeninghourafternoon(): ?string
     {
         return $this->openinghourafternoon;
     }
 
-    public function setOpeninghourafternoon(int $openinghourafternoon): static
+    public function setOpeninghourafternoon(string $openinghourafternoon): static
     {
         $this->openinghourafternoon = $openinghourafternoon;
 
         return $this;
     }
 
-    public function getClosinghourafternoon(): ?int
+    public function getClosinghourafternoon(): ?string
     {
         return $this->closinghourafternoon;
     }
 
-    public function setClosinghourafternoon(int $closinghourafternoon): static
+    public function setClosinghourafternoon(string $closinghourafternoon): static
     {
         $this->closinghourafternoon = $closinghourafternoon;
 

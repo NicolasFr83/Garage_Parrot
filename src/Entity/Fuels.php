@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\FuelsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 
 #[ORM\Entity(repositoryClass: FuelsRepository::class)]
 class Fuels
@@ -23,7 +26,14 @@ class Fuels
     )]
     private ?string $name = null;
 
-    
+    #[ORM\OneToMany(mappedBy: 'fuel', targetEntity: Cars::class)]
+    private Collection $cars;
+
+    public function __construct()
+    {
+        $this->cars = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -38,6 +48,37 @@ class Fuels
     {
         $this->name = $name;
 
+        return $this;
+    }
+
+        /**
+     * @return Collection<int, Cars>
+     */
+
+    public function getCars(): Collection
+    {
+        return $this->cars;
+    }
+
+    public function addCar(Cars $car): static
+    {
+        if (!$this->cars->contains($car)) {
+            $this->cars->add($car);
+            $car->setFuel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCar(Cars $car): static
+    {
+        if ($this->cars->removeElement($car)) {
+            // set the owning side to null (unless already changed)
+            if ($car->getFuel() === $this) {
+                $car->setFuel(null);
+            }
+        }
+        
         return $this;
     }
 }

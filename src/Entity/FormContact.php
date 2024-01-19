@@ -49,8 +49,8 @@ class FormContact
         minMessage: 'Le numéro doit contenir 10 chiffres minimum.',
         maxMessage: "Le numéro ne doit pas dépasser 12 chiffres"
     )]
-    #[Assert\Regex(pattern: '/^[0-9]+$/', message: 'Le Prix afficher ne doit contenir que des chiffres.')]
-    private ?int $phoneNumber = null;
+    #[Assert\Regex(pattern: '/^0[1-9]([-. ]?[0-9]{2}){4}$/', message: 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces et le caractère +.')] 
+    private ?string $phoneNumber = null;
 
 
     #[ORM\Column(length: 255)]
@@ -76,7 +76,11 @@ class FormContact
     #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $createdAt = null;
 
-    
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -118,12 +122,12 @@ class FormContact
         return $this;
     }
 
-    public function getPhoneNumber(): ?int
+    public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(int $phoneNumber): static
+    public function setPhoneNumber(string $phoneNumber): static
     {
         $this->phoneNumber = $phoneNumber;
 

@@ -31,14 +31,14 @@ class Garage
     private ?string $email = null;
 
 
-    #[ORM\Column(length:10)]
-    #[Assert\NotBlank(message: 'Veuillez renseigner le numéro de téléphone du garage.')]
+    #[ORM\Column(length:15)]
+    #[Assert\NotBlank(message: 'Veuillez renseigner un numéro de téléphone du garage.')]
     #[Assert\Length(
         min: 10, max: 10,
         message:'Le numéro de téléphone doit contenir 10 chiffres',
     )]
-    #[Assert\Regex(pattern: '/^[0-9]+$/', message: 'Le Prix afficher ne doit contenir que des chiffres.')]
-    private ?int $phonenumber = null;
+    #[Assert\Regex(pattern: '/^0[1-9]([-. ]?[0-9]{2}){4}$/', message: 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces et le caractère +.')]
+    private ?string $phonenumber = null;
 
     
     #[ORM\OneToMany(mappedBy: 'garage', targetEntity: Openninggarage::class)]
@@ -82,12 +82,12 @@ class Garage
         return $this;
     }
 
-    public function getPhonenumber(): ?int
+    public function getPhonenumber(): ?string
     {
         return $this->phonenumber;
     }
 
-    public function setPhonenumber(int $phonenumber): static
+    public function setPhonenumber(string $phonenumber): static
     {
         $this->phonenumber = $phonenumber;
 

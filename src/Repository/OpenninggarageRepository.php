@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\Openninggarage;
+use App\Entity\OpenningGarage;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Openninggarage>
+ * @extends ServiceEntityRepository<OpenningGarage>
  *
  * @method Openninggarage|null find($id, $lockMode = null, $lockVersion = null)
  * @method Openninggarage|null findOneBy(array $criteria, array $orderBy = null)
  * @method Openninggarage[]    findAll()
  * @method Openninggarage[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class OpenninggarageRepository extends ServiceEntityRepository
+class OpenningGarageRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Openninggarage::class);
+        parent::__construct($registry, OpenningGarage::class);
     }
 
 //    /**
-//     * @return Openninggarage[] Returns an array of Openninggarage objects
+//     * @return OpenningGarage[] Returns an array of OpenningGarage objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class OpenninggarageRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Openninggarage
+//    public function findOneBySomeField($value): ?OpenningGarage
 //    {
 //        return $this->createQueryBuilder('o')
 //            ->andWhere('o.exampleField = :val')

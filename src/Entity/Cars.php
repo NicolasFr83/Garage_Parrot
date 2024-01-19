@@ -73,7 +73,7 @@ class Cars
     private ?Brands $brand = null;
 
     #[ORM\ManyToOne(inversedBy: 'cars')]
-    private ?Options $fuels = null;
+    private ?Fuels $fuel = null;
 
     #[ORM\ManyToMany(targetEntity: Options::class, inversedBy: 'cars')]
     private Collection $options;
@@ -89,6 +89,8 @@ class Cars
 
     public function __construct()
     {
+        $this->createdAt = new \DateTimeImmutable();
+        $this->updatedAt = new \DateTimeImmutable();
         $this->options = new ArrayCollection();
     }
 
@@ -181,14 +183,14 @@ class Cars
         return $this;
     }
 
-    public function getFuels(): ?Options
+    public function getFuel(): ?Fuels
     {
-        return $this->fuels;
+        return $this->fuel;
     }
 
-    public function setFuels(?Options $fuels): static
+    public function setFuel(?Fuels $fuel): static
     {
-        $this->fuels = $fuels;
+        $this->fuel = $fuel;
 
         return $this;
     }
