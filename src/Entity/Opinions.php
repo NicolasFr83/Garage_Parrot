@@ -40,10 +40,11 @@ class Opinions
     #[Assert\NotBlank(message: 'Veuillez renseigner une note entre 1 et 5.')]
     #[Assert\Length(
         min: 1, max: 1,
-        message: 'veuillez renseigner une note entre 1 et 5'
+        minMessage: 'veuillez renseigner une note entre 1 et 5',
+        maxMessage: 'veuillez renseigner une note entre 1 et 5'
     )]
-    #[Assert\Regex(pattern: '/^0[1-9]([-. ]?[0-9]{2}){4}$/', message: 'Le Prix afficher ne doit contenir que des chiffres.')]
-    private ?string $score = null;
+    #[Assert\Regex(pattern: '/^[0-9]+$/', message: 'Le Prix afficher ne doit contenir que des chiffres.')]
+    private ?int $score = null;
 
 
     #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]

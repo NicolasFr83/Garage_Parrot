@@ -42,14 +42,14 @@ class FormContact
     private ?string $email = null;
 
 
-    #[ORM\Column(length:12)]
-    #[Assert\NotBlank(message: 'Veuillez renseigner votre numéro de téléphone.')]
+    #[ORM\Column(length: 15)]
+    #[Assert\NotBlank(message: 'Veuillez renseigner un numéro de téléphone.')]
     #[Assert\Length(
-        min: 10, max: 12,
-        minMessage: 'Le numéro doit contenir 10 chiffres minimum.',
-        maxMessage: "Le numéro ne doit pas dépasser 12 chiffres"
+        min: 10, max: 10,
+        minMessage: 'Le numéro de téléphone doit être de 10 caractères minimum.',
+        maxMessage: "Le numéro de téléphone ne doit pas dépasser 10 caractères"
     )]
-    #[Assert\Regex(pattern: '/^0[1-9]([-. ]?[0-9]{2}){4}$/', message: 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces et le caractère +.')] 
+    #[Assert\Regex(pattern: '/^0[1-9]([-. ]?[0-9]{2}){4}$/', message: 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces et le caractère +.')]
     private ?string $phoneNumber = null;
 
 
@@ -127,7 +127,7 @@ class FormContact
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(string $phoneNumber): static
+    public function setPhoneNumber(string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
 
