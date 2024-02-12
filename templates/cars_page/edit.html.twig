@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de la page {% endblock %}
+
+{% block body %}
+    <main class="car-page-form form-flux">
+        <h1 class=" car-page-form__title">modification de la page</h1>
+
+    {{ include('cars_page/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+        <div class='car-page-form__modification'>
+            <a class='button' href="{{ path('app_cars_page_index') }}">Retour à la page</a>
+        </div>
+    </main>
+{% endblock %}

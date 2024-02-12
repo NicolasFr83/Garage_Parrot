@@ -1,0 +1,9 @@
+
+<section class="contact-page-form__flux contact-page-form__modification"> 
+    {{ form_start(form, {'attr': {'class': 'contact-page-form__form'}}) }}
+        {{ form_widget(form) }}
+            <div class='contact-page-form__modification'>
+                <button class='button'>{{ button_label|default('Sauvegarder') }}</button>
+            </div>
+    {{ form_end(form) }}
+</section> 

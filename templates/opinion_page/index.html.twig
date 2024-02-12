@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page des avis{% endblock %}
+
+{% block body %}
+
+    {% for opinion_page in opinion_pages %}
+
+        <section class="opinion-page">
+            <section class="opinion-page__title">
+                <h1>{{ opinion_page.title }}</h1>
+            </section>
+            <section class="opinion-page__text">
+                <p>{{ opinion_page.presentationText }}</p>
+            </section>
+        </section>
+        <div class="opinion-page">
+            <a class="button" href="{{ path('app_opinion_page_edit', {'id': opinion_page.id}) }}">Modifier</a>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos voitures d'occasions{% endblock %}
+
+{% block body %}
+
+    {% for cars_page in cars_pages %}
+
+        <section class="car-page">
+            <section class="car-page__title">
+                <h1>{{ cars_page.title }}</h1>
+            </section>
+            <section class="car-page__text">
+                <p>{{ cars_page.carPresentationText }}</p>
+            </section>
+        </section>
+        <div class="car-page">
+            <a class="button" href="{{ path('app_cars_page_edit', {'id': cars_page.id}) }}">Modifier</a>
+        </div>
+    {% endfor %}
+{% endblock %}

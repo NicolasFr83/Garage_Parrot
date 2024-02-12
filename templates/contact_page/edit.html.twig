@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification  page de contact{% endblock %}
+
+{% block body %}
+    <main class="contact-page-form form-flux">
+        <h1 class=" contact-page-form__title">Modification de la page de contact</h1>
+
+        {{ include('contact_page/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+        <div class="contact-page-form__modification">
+            <a class="button" href="{{ path('app_contact_page_index') }}">Retour sur la page de contact</a>
+        </div>
+    </main>
+{% endblock %}

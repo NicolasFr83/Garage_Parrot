@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification page d'accueil{% endblock %}
+
+{% block body %}
+    <main class="home-page-form form-flux">
+        <h1 class='home-page-form__title'>Modification de la page d'accueil</h1>
+
+        {{ include('home_page/_form.html.twig', {'button_label': 'sauvegarder'}) }}
+
+        <div class='home-page-form__flux'>
+            <a class="button" href="{{ path('app_home_page_index') }}">Retour à la page</a>
+        </div>
+    </main>
+{% endblock %}

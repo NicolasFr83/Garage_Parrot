@@ -1,0 +1,9 @@
+
+<section class="opinion-page-form__flux">
+    {{ form_start(form, {'attr': {'class': 'opinion-page-form__form'}}) }}
+    {{ form_widget(form) }}
+    <div class='opinion-page-form__modification'>
+        <button class="button">{{ button_label|default('Sauvegarder') }}</button>
+    </div>
+    {{ form_end(form) }}
+</section>

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page contact{% endblock %}
+
+{% block body %}
+
+    {% for contact_page in contact_pages %}
+
+        <section class="contact_page">
+            <section class="contact-page__title">
+                <h1>{{ contact_page.title }}</h1>
+            </section>
+            <section class="contact-page">
+                <p class="contact-page__text">{{ contact_page.textPresentation }}</p>
+            </section>
+            <section class="contact-page">
+                <img src="{{ asset('images/garage-ancien.jpg')}}" class="picture-contact-page" alt="garage">
+            </section>
+        </section>
+
+        <div class="contact-page">
+            <a class="button" href="{{ path('app_contact_page_edit', {'id': contact_page.id}) }}">Modifier</a>
+        </div>
+    {% endfor %}
+{% endblock %}
