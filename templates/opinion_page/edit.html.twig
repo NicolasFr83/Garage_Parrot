@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de la page opinion{% endblock %}
+
+{% block body %}
+    <main class="opinion-page-form form-flux">
+        <h1 class='opinion-page-form__title'>Modification de la page avis</h1>
+
+        {{ include('opinion_page/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+        
+        <div class="opinion-page-form__modification">
+            <a class="button" href="{{ path('app_opinion_page_index') }}">Retour à la page</a>
+        </div>
+    </main>
+{% endblock %}

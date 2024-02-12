@@ -27,11 +27,11 @@ class CarsPage
 
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Assert\NotBlank(message: 'Veuillez renseigner la description de la voiture.')]
+    #[Assert\NotBlank(message: 'Veuillez renseigner la description de la page.')]
     #[Assert\Length(
         min: 10, max: 1255,
-        minMessage: 'La description de la voiture doit être de 10 caractères minimum.',
-        maxMessage: "La description de la voiture ne doit pas dépasser 1255 caractères"
+        minMessage: 'La description de la page doit être de 10 caractères minimum.',
+        maxMessage: "La description de la page ne doit pas dépasser 1255 caractères"
     )]
     private ?string $carPresentationText = null;
 
