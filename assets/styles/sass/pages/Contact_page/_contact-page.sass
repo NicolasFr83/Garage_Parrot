@@ -1,0 +1,28 @@
+@use "../../base/_typos" as typo
+@use "../../abstract/_all" as abstract
+@use "../../base/_flux" as flux
+@use "../../base/_custom" as custom
+@use "../../base/_font" as font
+
+.contact-page
+    @extend %flux-2
+    margin-top: 5rem
+    @include abstract.d-flex(column, center, center)
+
+    &__title
+        @extend %title-1
+        margin-top: 1rem
+        text-decoration: underline 
+        text-underline-offset: 0.5rem
+        text-decoration-color: custom.$dark
+        text-align: center
+
+    &__text
+        @extend %text-1
+        margin-top: 5rem
+        text-align: center
+
+.picture-contact-page
+    width: 50rem
+    height: 20rem
+    text-align: center
