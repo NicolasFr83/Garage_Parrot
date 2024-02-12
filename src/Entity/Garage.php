@@ -35,13 +35,13 @@ class Garage
     #[Assert\NotBlank(message: 'Veuillez renseigner un numéro de téléphone du garage.')]
     #[Assert\Length(
         min: 10, max: 10,
-        message:'Le numéro de téléphone doit contenir 10 chiffres',
+        minMessage:'Le numéro de téléphone doit contenir 10 chiffres',
     )]
     #[Assert\Regex(pattern: '/^0[1-9]([-. ]?[0-9]{2}){4}$/', message: 'Le numéro de téléphone ne doit contenir que des chiffres, des espaces et le caractère +.')]
     private ?string $phonenumber = null;
 
     
-    #[ORM\OneToMany(mappedBy: 'garage', targetEntity: Openninggarage::class)]
+    #[ORM\OneToMany(mappedBy: 'garage', targetEntity: OpenningGarage::class)]
     private Collection $openninggarages;
 
     #[ORM\OneToMany(mappedBy: 'garage', targetEntity: Opinions::class)]
@@ -51,6 +51,11 @@ class Garage
     {
         $this->openninggarages = new ArrayCollection();
         $this->opinions = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -95,14 +100,14 @@ class Garage
     }
 
     /**
-     * @return Collection<int, Openninggarage>
+     * @return Collection<int, OpenningGarage>
      */
     public function getOpenninggarages(): Collection
     {
         return $this->openninggarages;
     }
 
-    public function addOpenninggarage(Openninggarage $openninggarage): static
+    public function addOpenninggarage(OpenningGarage $openninggarage): static
     {
         if (!$this->openninggarages->contains($openninggarage)) {
             $this->openninggarages->add($openninggarage);
@@ -112,7 +117,7 @@ class Garage
         return $this;
     }
 
-    public function removeOpenninggarage(Openninggarage $openninggarage): static
+    public function removeOpenninggarage(OpenningGarage $openninggarage): static
     {
         if ($this->openninggarages->removeElement($openninggarage)) {
             // set the owning side to null (unless already changed)

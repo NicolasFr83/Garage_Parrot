@@ -28,7 +28,7 @@ class OpenningGarage
     #[Assert\NotBlank(message: 'Veuillez renseigner les heures d\'ouverture  du garage.')]
     #[Assert\Length(
         min: 5, max: 5,
-        message:'L\'heure d\'ouverture doit contenir 5 chiffres',
+        minMessage:'L\'heure d\'ouverture doit contenir 5 chiffres',
     )]
     private ?string $openinghourmorning = null;
 
@@ -37,7 +37,7 @@ class OpenningGarage
     #[Assert\NotBlank(message: 'Veuillez renseigner les heures de fermeture  du garage.')]
     #[Assert\Length(
         min: 5, max: 5,
-        message:'L\'heure de fermeture doit contenir 5 chiffres',
+        minMessage:'L\'heure de fermeture doit contenir 5 chiffres',
     )]
     private ?string $closinghourmorning = null;
 
@@ -46,7 +46,7 @@ class OpenningGarage
     #[Assert\NotBlank(message: 'Veuillez renseigner les heures d\'ouverture  du garage.')]
     #[Assert\Length(
         min: 5, max: 5,
-        message:'L\'heure d\'ouverture doit contenir 5 chiffres',
+        minMessage:'L\'heure d\'ouverture doit contenir 5 chiffres',
     )]
     private ?string $openinghourafternoon = null;
 
@@ -55,7 +55,7 @@ class OpenningGarage
     #[Assert\NotBlank(message: 'Veuillez renseigner les heures de fermeture  du garage.')]
     #[Assert\Length(
         min: 5, max: 5,
-        message:'L\'heure de fermeture doit contenir 5 chiffres',
+        minMessage:'L\'heure de fermeture doit contenir 5 chiffres',
     )]
     private ?string $closinghourafternoon = null;
     

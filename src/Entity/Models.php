@@ -25,6 +25,8 @@ class Models
     
 
     #[ORM\ManyToOne(inversedBy: 'models')]
+    #[ORM\JoinColumn(nullable: false)]
+
     private ?Brands $brands = null;
 
     public function getId(): ?int

@@ -9,10 +9,10 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @extends ServiceEntityRepository<OpenningGarage>
  *
- * @method Openninggarage|null find($id, $lockMode = null, $lockVersion = null)
- * @method Openninggarage|null findOneBy(array $criteria, array $orderBy = null)
- * @method Openninggarage[]    findAll()
- * @method Openninggarage[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method OpenninGgarage|null find($id, $lockMode = null, $lockVersion = null)
+ * @method OpenningGarage|null findOneBy(array $criteria, array $orderBy = null)
+ * @method OpenningGarage[]    findAll()
+ * @method OpenningGarage[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class OpenningGarageRepository extends ServiceEntityRepository
 {
