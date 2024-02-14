@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\ContactPage;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\FormContact;
 
 /**
  * @extends ServiceEntityRepository<ContactPage>
@@ -20,6 +21,8 @@ class ContactPageRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ContactPage::class);
     }
+
+
 
 //    /**
 //     * @return ContactPage[] Returns an array of ContactPage objects
