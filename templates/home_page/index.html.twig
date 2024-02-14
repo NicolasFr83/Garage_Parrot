@@ -50,14 +50,14 @@
 				</button>
 			</div>
 		</Section>
-
 		<section class="opinion">
 			<h2 class="opinion__section-title">{{ home_page.opinionsSectionTitle }}</h2>
 			<p class="opinion__section-text">{{ home_page.opinionsSectionText }}</p>
 		</Section>
-
-		<div class="main">
-			<a class="button" href="{{ path('app_home_page_edit', {'id': home_page.id }) }}">Modifier</a>
-		</div>
+		{% if is_granted('ROLE_ADMIN') %}		
+			<div class="main">
+				<a class="button" href="{{ path('app_home_page_edit', {'id': home_page.id }) }}">Modifier</a>
+			</div>
+		{% endif %}
 	{% endfor %}
 {% endblock %}

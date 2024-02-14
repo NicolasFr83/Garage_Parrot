@@ -1,20 +1,16 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello FormContactController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/symfony/Garage_Parrot/src/Controller/FormContactController.php'|file_link(0) }}">src/Controller/FormContactController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/symfony/Garage_Parrot/templates/form_contact/index.html.twig'|file_link(0) }}">templates/form_contact/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <h1 class='form-contact__title'>Formulaire de contact</h1>
+    <section class="form-contact">
+    {{ form_start(formContact, {'attr': {'class': 'contact-card'}}) }}
+        {{ form_row(formContact.name)}}
+        {{ form_row(formContact.firstName) }}
+        {{ form_row(formContact.email) }}
+        {{ form_row(formContact.phoneNumber) }}
+        {{ form_row(formContact.subject) }}
+        {{ form_row(formContact.message) }}
+        <div class=''>
+            <button type="submit" class="button">Envoyer</button>
+        </div>
+    {{ form_end(formContact) }}   
+    </section>
 {% endblock %}

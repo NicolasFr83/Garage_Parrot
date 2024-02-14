@@ -1,0 +1,60 @@
+@use "../../base/_typos"
+@use "../../base/_custom" as custom
+
+.login-form
+    display: flex
+    align-items: center
+    justify-content: space-around
+    flex-direction: column
+    height: 40%
+    margin-top: 3vw
+    margin-bottom: 5vw
+
+    &__title
+        @extend %title-2
+        text-align: center
+        margin-top: 3vw
+
+    &__email
+        align-items: baseline
+        display: flex
+        flex-direction: column
+        flex-wrap: wrap
+        align-content: center
+        justify-content: space-between
+        width: 35%
+        margin-top: 2vw
+
+        &--label
+            @extend %text-2
+            align-items:  center
+
+        &--input
+            @extend %text-2
+
+    &__password
+        align-items: baseline
+        display: flex
+        flex-direction: column
+        flex-wrap: wrap
+        align-content: center
+        justify-content: space-between
+        width: 35%
+
+        &--label
+            @extend %text-2
+            align-items: center
+
+        &--input
+            @extend %text-2
+
+    &__button
+        background-color: custom.$warning
+        color: custom.$danger
+        @extend %text-2
+        text-align: center
+        cursor: pointer
+        margin-top: 3vw
+        &:hover
+            background-color: custom.$dark
+            color: custom.$light

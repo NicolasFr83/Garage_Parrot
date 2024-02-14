@@ -14,8 +14,10 @@
                 <p>{{ opinion_page.presentationText }}</p>
             </section>
         </section>
+    {% if is_granted('ROLE_ADMIN') %}
         <div class="opinion-page">
             <a class="button" href="{{ path('app_opinion_page_edit', {'id': opinion_page.id}) }}">Modifier</a>
         </div>
+    {% endif %}
     {% endfor %}
 {% endblock %}
