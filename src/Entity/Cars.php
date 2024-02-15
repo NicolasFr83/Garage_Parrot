@@ -87,6 +87,10 @@ class Cars
     #[ORM\ManyToOne(inversedBy: 'cars')]
     private ?Types $type = null;
 
+    #[ORM\ManyToOne(inversedBy: 'cars')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Models $model = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -251,6 +255,18 @@ class Cars
     public function setType(?Types $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getModel(): ?Models
+    {
+        return $this->model;
+    }
+
+    public function setModel(?Models $model): static
+    {
+        $this->model = $model;
 
         return $this;
     }

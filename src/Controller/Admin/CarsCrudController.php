@@ -7,12 +7,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use phpDocumentor\Reflection\Types\Integer;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class CarsCrudController extends AbstractCrudController
 {
@@ -36,6 +35,9 @@ class CarsCrudController extends AbstractCrudController
         return [
             IdField::new('id')
                 ->hideOnForm(),
+            AssociationField::new('brand', 'Marque'),
+            AssociationField::new('model', 'Modèle'),
+            AssociationField::new('type' ,'Type'),
             IntegerField::new('price', 'Prix'),
             TextField::new('imageFile')
                 ->setFormType(VichImageType::class),
@@ -44,9 +46,9 @@ class CarsCrudController extends AbstractCrudController
                 ->onlyOnIndex(),
             IntegerField::new('years', 'Année de la voiture'),
             IntegerField::new('kilometers', 'Kilometrage'),
-            TextEditorField::new('carPresentationText', 'Description de la voiture'),
-            AssociationField::new('brand', 'Marque'),
+            TextareaField::new('carPresentationText', 'Description de la voiture'),
             AssociationField::new('fuel', 'Essence'),
+            AssociationField::new('options', 'Options')
         ];
     }
 }

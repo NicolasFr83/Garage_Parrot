@@ -15,3 +15,5 @@ const $ = require('jquery');
 require('bootstrap');
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉')
+
+import './js/script.js';

@@ -45,4 +45,29 @@ class CarsRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function getFilteredCars($minYear = null, $maxPrice = null, $maxKms = null): array
+    {
+        $query = $this->createQueryBuilder('c');
+
+        if ($minYear !== null) {
+            $query->where('c.years >= :minYear')
+            ->setParameter('minYear', $minYear);
+        }
+
+        if ($maxPrice !== null) {
+            $query->andWhere('c.price <= :maxPrice')
+            ->setParameter('maxPrice', $maxPrice);
+        }
+
+        if ($maxKms !== null) {
+            $query->andWhere('c.kilometers <= :maxKilometers')
+            ->setParameter('maxKilometers', $maxKms);
+        }
+
+        $query->orderBy('c.id', 'DESC')
+            ->getQuery();
+
+        return $query->getQuery()->getResult();
+    }
 }

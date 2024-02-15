@@ -1,5 +1,5 @@
     <header>
-        <nav class="navbar navbar-default navbar-expand-lg bg-light">
+        <nav class="navbar navbar-default navbar-expand-lg nav-bar-custom">
             <div class="container-fluid nav-bar-custom" >
                 <img src="{{ asset('images/Garage_parrot.png')}} " alt="logo-garage" class="logo" >
                 <button class="m-inherit navbar-toggler textcolor" type="button" data-bs-toggle="collapse" 
@@ -14,11 +14,10 @@
                 <div class="collapse navbar-collapse justify-content-end nav-bar-custom" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link text-dark link-hover link-warning fs-5" href="{{ path('app_home_page_index')}}">Accueil</a>
-                        <a class="nav-link text-dark link-hover link-warning fs-5" href="{{ path('app_cars_page_index')}}">Voitures d'occasions</a>
-                        <a class="nav-link text-dark link-hover link-warning fs-5" href="{{ path('app_contact_page_index')}}">Contactez nous</a>
+                        <a class="nav-link text-dark link-hover link-warning fs-5" href="{{ path('app_cars_index')}}">Voitures d'occasions</a>                        <a class="nav-link text-dark link-hover link-warning fs-5" href="{{ path('app_contact_page_index')}}">Contactez nous</a>
                         <a class="nav-link text-dark link-hover link-warning fs-5" href="{{ path('app_opinion_page_index')}}">Avis</a>
                         {% if is_granted('ROLE_ADMIN') %}
-					        <a href="{{path('admin')}}" class="nav-link text-dark link-hover link-warning fs-5">Gestion</a>
+					        <a href="{{path('app_admin')}}" class="nav-link text-dark link-hover link-warning fs-5">Gestion</a>
 				        {% endif %}
 				        {% if app.user %}
 					        <a href="{{path('app_logout')}}" class="nav-link text-dark link-hover link-warning fs-5">Se déconnecter</a>

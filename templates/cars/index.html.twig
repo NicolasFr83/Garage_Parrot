@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos voitures d'occasions{% endblock %}
+
+{% block body %}
+    {% include 'cars_page/index.html.twig'%}
+
+    <section>
+        <form action="" method="post" class="js-filters-form">
+            <div>
+                <label for="">Prix maximum</label>
+                <input type="number" min="0" max="1000000" placeholder="0" name="price_max">
+            </div>
+            <div>
+                <label for="">Kilomètres maximum</label>
+                <input type="number" min="0" max="500000" placeholder="0" name="kms_max">
+            </div>
+            <div>
+                <label for="">Année minimum de mise en circulation</label>
+                <input type="number" min="1960" max="3000" placeholder="2024" name="year">
+            </div>
+            <input type="reset">
+            <button>Filtrer</button>
+            <input type="submit">
+        </form>
+    </section>
+
+    <section id="filtered_cars" class="carsFiltered">
+        {% include 'cars/_cars.html.twig'%}
+    </section>
+{% endblock %}

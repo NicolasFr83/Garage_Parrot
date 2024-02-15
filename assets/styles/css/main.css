@@ -11997,17 +11997,17 @@ ul {
 
 .opinion-page__title, .contact-page__title, .car-page__title, .main__title {
   font-family: "Cinzel", serif;
-  font-size: 6rem;
+  font-size: 7vw;
   color: #9a0007;
 }
 
 .login-form__title, .form-contact__title, .opinion-page-form__title, .contact-page-form__title, .car-page-form__title, .home-page-form__title, .opinion__section-title, .used__cars-title, .repair__section-title {
   font-family: "Cinzel", serif;
-  font-size: 2, 5rem;
+  font-size: 3, 5vw;
   color: #9a0007;
 }
 
-.opinion-page__text, .contact-page__text, .car-page__text, .opinion__section-text, .used__cars-text, .repair__section-text, .main__welcome {
+.card-car__title, .opinion-page__text, .contact-page__text, .car-page__text, .opinion__section-text, .used__cars-text, .repair__section-text, .main__welcome {
   font-family: "Crimson Text", serif;
   font-size: 2rem;
   color: #000000;
@@ -12072,6 +12072,14 @@ ul {
 .main__welcome {
   margin-top: 5rem;
   text-align: center;
+}
+.main__icon {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .main__icon {
+    display: inline;
+  }
 }
 
 .repair {
@@ -12490,11 +12498,40 @@ ul {
   transition: 1s ease-in-out;
 }
 
+.card-car {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 1px 1px 20px -3px #000000;
+  border-radius: 1rem 1rem 1rem 1rem;
+  max-width: 80%;
+  margin-bottom: 5rem;
+}
+.card-car__title {
+  color: #000000;
+  text-decoration: underline;
+  background: #EBA900;
+}
+
+.cars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cars__image {
+  max-width: 18rem;
+}
+
 .logo {
   width: 20vw;
 }
 
 .footer-custom {
+  margin-top: 3rem;
   background: linear-gradient(#FFFAEF, #000000);
-  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=main.css.map */
