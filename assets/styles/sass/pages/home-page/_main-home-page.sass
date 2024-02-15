@@ -16,9 +16,16 @@
         text-decoration-color: custom.$dark
         display: inline
         padding: 3rem
+        +abstract.responsive("tablet")
+            
+
 
     &__welcome
         @extend %text-1
         margin-top: 5rem
         text-align: center
 
+    &__icon
+        display: none
+        +abstract.responsive("litle-tablet")
+            display: inline

@@ -1,0 +1,32 @@
+@use "../abstract/_all" as abstract
+@use "../base/_custom" as custom
+@use "../base/_typos" 
+@use "../base/_flux"
+
+.card-car
+    display: flex
+    flex-direction: column
+    justify-content: center
+    box-shadow: 1px 1px 20px -3px custom.$dark
+    border-radius: 1rem 1rem 1rem 1rem
+    max-width: 80%
+    margin-bottom: 5rem
+
+
+
+    &__title
+        @extend %text-1
+        color: custom.$dark
+        text-decoration: underline
+        background: custom.$warning
+
+
+.cars
+    @include abstract.d-flex(column, center, center)
+
+    &__image
+        max-width: 18rem
+
+
+
+
