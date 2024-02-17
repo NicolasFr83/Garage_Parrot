@@ -49,4 +49,6 @@ const backCall = (dataToSend) => {
 }
 
 
-watchSubmit()
+document.addEventListener('DOMContentLoaded', function () {
+    watchSubmit()
+});

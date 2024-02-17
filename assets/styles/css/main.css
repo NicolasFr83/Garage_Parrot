@@ -12001,13 +12001,13 @@ ul {
   color: #9a0007;
 }
 
-.login-form__title, .form-contact__title, .opinion-page-form__title, .contact-page-form__title, .car-page-form__title, .home-page-form__title, .opinion__section-title, .used__cars-title, .repair__section-title {
+.card-car__title, .login-form__title, .form-contact__title, .opinion-page-form__title, .contact-page-form__title, .car-page-form__title, .home-page-form__title, .opinion__section-title, .used__cars-title, .repair__section-title {
   font-family: "Cinzel", serif;
   font-size: 3, 5vw;
   color: #9a0007;
 }
 
-.card-car__title, .opinion-page__text, .contact-page__text, .car-page__text, .opinion__section-text, .used__cars-text, .repair__section-text, .main__welcome {
+.opinion-page__text, .contact-page__text, .car-page__text, .opinion__section-text, .used__cars-text, .repair__section-text, .main__welcome {
   font-family: "Crimson Text", serif;
   font-size: 2rem;
   color: #000000;
@@ -12019,7 +12019,7 @@ ul {
   color: #000000;
 }
 
-.form-contact__field--label, .form-contact__field--input, .opinion-page-form__field--label, .opinion-page-form__field--input, .contact-page-form__field--label, .contact-page-form__field--input, .car-page-form__field--label, .car-page-form__field--input, .home-page-form__field--label, .home-page-form__field--input {
+.card-car__text, .form-contact__field--label, .form-contact__field--input, .opinion-page-form__field--label, .opinion-page-form__field--input, .contact-page-form__field--label, .contact-page-form__field--input, .car-search__reset, .car-search-text, .car-page-form__field--label, .car-page-form__field--input, .home-page-form__field--label, .home-page-form__field--input {
   font-family: "Crimson Text", serif;
   font-size: 1.3rem;
   color: #000000;
@@ -12040,7 +12040,7 @@ ul {
   max-width: 70%;
 }
 
-.opinion-page, .contact-page, .car-page, .main {
+.opinion-page, .contact-page, .car-search, .car-page, .main {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -12251,6 +12251,60 @@ ul {
   flex-direction: colum;
   justify-content: center;
   align-items: center;
+}
+
+.car-search {
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+}
+.car-search__section {
+  background: #c35504;
+}
+.car-search__title {
+  display: flex;
+  justify-content: center;
+  background: #c35504;
+  color: #FFFAEF;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-color: #000000;
+  margin-bottom: 2rem;
+}
+.car-search__label {
+  margin-right: 1rem;
+}
+.car-search__buton {
+  padding-left: 2rem;
+  border-radius: 0.5rem;
+  border-color: #9a0007;
+  border-width: 0.2rem;
+  background: #FFFAEF;
+}
+.car-search__imput {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+.car-search__reset {
+  border-radius: 5px;
+  padding: 3px;
+  border-color: #9a0007;
+  border-width: 0.3rem;
+  background: #FFFAEF;
+}
+.car-search__reset:hover {
+  color: #FFFAEF;
+  background: #EBA900;
+}
+
+.car-search-text {
+  display: flex;
+  justify-content: center;
+  background: #c35504;
+  color: #FFFAEF;
 }
 
 .contact-page-form {
@@ -12476,18 +12530,18 @@ ul {
   color: #FFFAEF;
 }
 
-.button {
-  padding: 1rem;
+.buton {
   margin-top: 2rem;
   margin-bottom: 2rem;
   box-shadow: 1px 1px 20px -3px #000000;
-  border-radius: 1rem 1rem 1rem 1rem;
+  border-radius: 1px;
+  padding: 1remm 1rem 1rem 1rem;
   outline: solid 0.1rem;
   outline-color: #EBA900;
   background: #c35504;
   color: #000000;
 }
-.button:hover {
+.buton:hover {
   color: #FFFAEF;
   background: #000000;
 }
@@ -12503,14 +12557,24 @@ ul {
   flex-direction: column;
   justify-content: center;
   box-shadow: 1px 1px 20px -3px #000000;
-  border-radius: 1rem 1rem 1rem 1rem;
+  border-radius: 1rem 2rem 1rem 1rem;
   max-width: 80%;
   margin-bottom: 5rem;
+  outline: solid 0.7rem;
+  outline-color: #9a0007;
+  margin-top: 5rem;
 }
 .card-car__title {
-  color: #000000;
+  color: #9a0007;
   text-decoration: underline;
-  background: #EBA900;
+  text-underline-offset: 0.5rem;
+  text-decoration-color: #000000;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+.card-car__text {
+  display: flex;
+  align-items: center;
 }
 
 .cars {
@@ -12521,6 +12585,24 @@ ul {
 }
 .cars__image {
   max-width: 18rem;
+}
+
+.car-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 1px 1px 20px -3px #000000;
+  border-radius: 2px;
+  padding: 5px;
+  outline: solid 0.1rem;
+  outline-color: #000000;
+  background: #9a0007;
+  color: #FFFAEF;
+}
+.car-btn:hover {
+  background: #000000;
 }
 
 .logo {
