@@ -5,26 +5,29 @@
 {% block body %}
     {% include 'cars_page/index.html.twig'%}
 
-    <section>
-        <form action="" method="post" class="js-filters-form">
-            <div>
-                <label for="">Prix maximum</label>
-                <input type="number" min="0" max="1000000" placeholder="0" name="price_max">
-            </div>
-            <div>
-                <label for="">Kilomètres maximum</label>
-                <input type="number" min="0" max="500000" placeholder="0" name="kms_max">
-            </div>
-            <div>
-                <label for="">Année minimum de mise en circulation</label>
-                <input type="number" min="1960" max="3000" placeholder="2024" name="year">
-            </div>
-            <input type="reset">
-            <button>Filtrer</button>
-            <input type="submit">
-        </form>
+    <section class="car-search">
+        <div class="card car-search__section">
+            <h2 class="card-title car-search__title">Recherchez votre véhicule</h5>
+            <form action="" method="post" class="js-filters-form">
+                <div class="car-search-text">
+                    <label class="car-search__label" for="">Prix maximum :</label>
+                    <input class="car-search__buton" type="number" min="0" max="1000000" placeholder="0" name="price_max">
+                </div>
+                <div class="car-search-text">
+                    <label class="car-search__label" for="">Kilomètres maximum :</label>
+                    <input class="car-search__buton" type="number" min="0" max="500000" placeholder="0" name="kms_max">
+                </div>
+                <div class="car-search-text">
+                    <label class="car-search__label" for="">Année minimum de mise en circulation :</label>
+                    <input class="car-search__buton" type="number" min="1950" max="3000" placeholder="2024" name="year">
+                </div>
+                <div class="car-search__imput">
+                    <input class="car-search__reset"type="reset">
+                    <button class="car-search__reset">Rechercher</button>
+                </div>
+            </form>
+        </div>
     </section>
-
     <section id="filtered_cars" class="carsFiltered">
         {% include 'cars/_cars.html.twig'%}
     </section>

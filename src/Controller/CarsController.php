@@ -4,14 +4,17 @@ namespace App\Controller;
 
 use App\Entity\Cars;
 use App\Form\CarsType;
+use App\Entity\FormContact;
+use App\Form\FormContactType;
 use App\Repository\CarsRepository;
+use App\Repository\CarsPageRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\FormContactRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\CarsPageRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/cars')]
 class CarsController extends AbstractController
@@ -21,7 +24,7 @@ class CarsController extends AbstractController
         Request $request,
         CarsRepository $carsRepository,
         CarsPageRepository $carPageRepository,
-
+        FormContactRepository $formContactRepository,
     ): Response
     {
         $minYear = $request->get('year');
@@ -43,7 +46,6 @@ class CarsController extends AbstractController
                 // Si des voitures sont trouvées
                 return new JsonResponse([
                     'content' => $this->renderView('cars/_cars.html.twig', [
-                        // Vous pouvez également passer des données à la vue ici si nécessaire
                         'cars' => $cars,
                     ]),
                 ]);
@@ -76,11 +78,22 @@ class CarsController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_cars_show', methods: ['GET'])]
-    public function show(Cars $car): Response
+    #[Route('/{id}', name: 'app_cars_show', methods: ['GET', 'POST'])]
+    public function show(Cars $car, FormContactRepository $formContactRepository, Request $request): Response
     {
+        $formContact = new FormContact();
+        $form = $this->createForm(FormContactType::class, $formContact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $formContactRepository->save($formContact, true);
+        }
+
         return $this->render('cars/show.html.twig', [
             'car' => $car,
+            'form_contact_contain' => $formContact,
+            'form' => $form,
+            'formContact' => $form->createView(),
         ]);
     }
 

@@ -1,20 +1,23 @@
 <ul class="cars">
-    <h5 class="card-title card-car__title">Véhicule trouvés</h5>
-{% for car in cars %}
-    <li class="card-car">
-        <div class="card">
-            <div class="card-body">
-                <img class="car__image" src="{{ vich_uploader_asset(car, 'imageFile') }}" alt='photo de voitures'>
+    <h2 class="card-title card-car__title">Liste des véhicules trouvés</h5>
+    {% for car in cars %}
+        <li class="card-car">
+            <div class="card">
+                <div class="card-body">
+                    <img class="carimage" src="{{ vich_uploader_asset(car, 'imageFile') }}" alt='photo de voitures'>
+                </div>
+                <div class="list-group list-group-flush card-car__text">
+                    <p class="cardescription--title">Prix du véhicule :
+                        {{car.price}}</p>
+                    <p class="cardescription--details">Année de mise en circulation:
+                        {{car.years}}</p>
+                    <p class="cardescription--details">Kilométrage :
+                        {{car.kilometers}}</p>
+                </div>
+                <div class="card-body">
+                    <a href="{{ path('app_cars_show', {'id': car.id})}}" class='link-to-show-car underline car-btn'>Voir la voiture</a>
+                </div>
             </div>
-            <div class="list-group list-group-flush">
-                <p class="cardescription--title">Prix du véhicule : {{car.price}}</p>
-                <p class="cardescription--details">Année de mise en circulation: {{car.years}}</p>
-                <p class="cardescription--details">Kilométrage : {{car.kilometers}}</p>
-            </div>
-            <div class="card-body">
-                <a href="{{ path('app_cars_show', {'id': car.id})}}" class='link-to-show-car underline'>Voir la voiture</a>
-            </div>
-        </div>
-    </li>
-{% endfor %}
+        </li>
+    {% endfor %}
 </ul>

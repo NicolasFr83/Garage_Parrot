@@ -1,50 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cars{% endblock %}
+{% block title %}Voitures
+{% endblock %}
 
 {% block body %}
-    <h1>Cars</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ car.id }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ car.price }}</td>
-            </tr>
-            <tr>
-                <th>ImageName</th>
-                <td>{{ car.imageName }}</td>
-            </tr>
-            <tr>
-                <th>Years</th>
-                <td>{{ car.years }}</td>
-            </tr>
-            <tr>
-                <th>Kilometers</th>
-                <td>{{ car.kilometers }}</td>
-            </tr>
-            <tr>
-                <th>CarPresentationText</th>
-                <td>{{ car.carPresentationText }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ car.createdAt ? car.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ car.updatedAt ? car.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+<section class="cars">
+	<div class="card card-car">
+        <div class="card-body cars">
+        <img class="" src="{{ vich_uploader_asset(car, 'imageFile') }}" alt='photo de voitures'>
+		</div>
+		<div class="list-group list-group-flush card-car__text">
+			<p class="cardescription--title">Prix du véhicule : {{car.price}}</p>
+			<p class="cardescription--details">Année de mise en circulation: {{car.years}}</p>
+			<p class="cardescription--details">Kilométrage : {{car.kilometers}}</p>
+			<p class="cardescription--details">{{ car.carPresentationText }}</p>
+		</div>
+		<div class="card-body cars">
+			<a class="car-btn" href="{{ path('app_cars_index') }}">Retouner sur la recherche</a>
+		</div>
+	</div>
+</section>
 
-    <a href="{{ path('app_cars_index') }}">back to list</a>
 
-    <a href="{{ path('app_cars_edit', {'id': car.id}) }}">edit</a>
 
-    {{ include('cars/_delete_form.html.twig') }}
+	<!-- Modal -->
+<div class="cars">
+	<button type="button" class="btn btn-danger buton car-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+		Nous contacter
+	</button>
+</div>
+	<div class="modal fade js-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Formulaire de contact</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<section class="form-contact">
+					{{ form_start(formContact, {'attr': {'class': 'contact-card'}}) }}
+					{{ form_row(formContact.name)}}
+					{{ form_row(formContact.firstName) }}
+					{{ form_row(formContact.email) }}
+					{{ form_row(formContact.phoneNumber) }}
+					{{ form_row(formContact.subject) }}
+					{{ form_row(formContact.message) }}
+					<div class=''>
+						<button type="submit" class="button">Envoyer</button>
+					</div>
+					{{ form_end(formContact) }}
+				</section>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger">Envoyer</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{% if app.user %}
+	<a href="{{ path('app_cars_edit', {'id': car.id}) }}">edit</a>
+	{{ include('cars/_delete_form.html.twig') }}
+{% endif %}
 {% endblock %}
