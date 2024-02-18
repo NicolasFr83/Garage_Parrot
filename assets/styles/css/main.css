@@ -11995,31 +11995,31 @@ ul {
   list-style: none;
 }
 
-.opinion-page__title, .contact-page__title, .car-page__title, .main__title {
+.opinion-page__title, .contact-page__title, .main__title {
   font-family: "Cinzel", serif;
   font-size: 7vw;
   color: #9a0007;
 }
 
-.card-car__title, .login-form__title, .form-contact__title, .opinion-page-form__title, .contact-page-form__title, .car-page-form__title, .home-page-form__title, .opinion__section-title, .used__cars-title, .repair__section-title {
+.card-car__title, .opinion-new__title, .register-form__title, .opinion-card__title, .login-form__title, .form-contact__title, .opinion-page-form__title, .contact-page-form__title, .car-page-form__title, .car-page__title, .home-page-form__title, .opinion__section-title, .used__cars-title, .repair__section-title {
   font-family: "Cinzel", serif;
   font-size: 3, 5vw;
   color: #9a0007;
 }
 
-.opinion-page__text, .contact-page__text, .car-page__text, .opinion__section-text, .used__cars-text, .repair__section-text, .main__welcome {
+.used__cars-text {
+  font-family: "Crimson Text", serif;
+  font-size: 3rem;
+  color: #000000;
+}
+
+.app-flash-message, .opinion-card__label:hover, .opinion-card__button, .login-form__email--label, .login-form__email--input, .login-form__password--label, .login-form__password--input, .login-form__button, .opinion-page__text, .contact-page__text, .car-page__text, .opinion__section-text, .used__cars-text, .repair__section-text, .main__welcome {
   font-family: "Crimson Text", serif;
   font-size: 2rem;
   color: #000000;
 }
 
-.login-form__email--label, .login-form__email--input, .login-form__password--label, .login-form__password--input, .login-form__button {
-  font-family: "Crimson Text", serif;
-  font-size: 1.7rem;
-  color: #000000;
-}
-
-.card-car__text, .form-contact__field--label, .form-contact__field--input, .opinion-page-form__field--label, .opinion-page-form__field--input, .contact-page-form__field--label, .contact-page-form__field--input, .car-search__reset, .car-search-text, .car-page-form__field--label, .car-page-form__field--input, .home-page-form__field--label, .home-page-form__field--input {
+.card-car__text, .opinion-new__field--label, .opinion-new__field--input, .register-form__field--label, .register-form__field--input, .opinion-card__label, .form-contact__field--label, .form-contact__field--input, .opinion-page-form__field--label, .opinion-page-form__field--input, .contact-page-form__field--label, .contact-page-form__field--input, .car-search__reset, .car-search-text, .car-page-form__field--label, .car-page-form__field--input, .home-page-form__field--label, .home-page-form__field--input {
   font-family: "Crimson Text", serif;
   font-size: 1.3rem;
   color: #000000;
@@ -12040,14 +12040,14 @@ ul {
   max-width: 70%;
 }
 
-.opinion-page, .contact-page, .car-search, .car-page, .main {
+.opinion-card__box, .opinion-page, .contact-page, .car-search, .car-page, .main {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   max-width: 80%;
 }
 
-.opinion-page-form, .contact-page-form, .car-page-form, .home-page-form {
+.opinion-new, .register-form, .opinion-page-form, .contact-page-form, .car-page-form, .home-page-form {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -12095,9 +12095,11 @@ ul {
   text-underline-offset: 0.2rem;
   text-decoration-color: #000000;
 }
-.repair__section-text {
-  margin-top: 2rem;
-  text-align: center;
+@media screen and (min-width: 855px) {
+  .repair__section-text {
+    margin-top: 2rem;
+    text-align: center;
+  }
 }
 
 .used {
@@ -12108,6 +12110,7 @@ ul {
   margin-top: 5rem;
 }
 .used__cars-title {
+  margin-left: 6rem;
   margin-top: 1rem;
   text-decoration: underline;
   text-underline-offset: 0.2rem;
@@ -12117,7 +12120,6 @@ ul {
   margin-top: 1rem;
   text-align: center;
 }
-
 .opinion {
   display: flex;
   flex-direction: column;
@@ -12131,9 +12133,12 @@ ul {
   text-underline-offset: 0.2rem;
   text-decoration-color: #000000;
 }
-.opinion__section-text {
-  margin-top: 1rem;
-  text-align: center;
+@media screen and (min-width: 855px) {
+  .opinion__section-text {
+    margin-top: 1rem;
+    text-align: center;
+    color: green;
+  }
 }
 
 .home-page-form {
@@ -12374,11 +12379,21 @@ ul {
   margin-top: 5rem;
   text-align: center;
 }
+.contact-page__buton {
+  width: 20px;
+  height: 15px;
+}
 
 .picture-contact-page {
-  width: 60rem;
-  height: 30rem;
-  text-align: center;
+  width: 30rem;
+  height: 15rem;
+}
+@media screen and (min-width: 768px) {
+  .picture-contact-page {
+    width: 60rem;
+    height: 30rem;
+    text-align: center;
+  }
 }
 
 .opinion-page {
@@ -12530,6 +12545,201 @@ ul {
   color: #FFFAEF;
 }
 
+.opinion__rate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.opinion__rate--colored-star {
+  width: 2rem;
+  fill: yellow;
+}
+.opinion__rate--uncolored-star {
+  width: 2rem;
+}
+
+.opinion-card {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .opinion-card {
+    flex-direction: row;
+    background: #000000;
+    border-radius: 2rem;
+  }
+}
+.opinion-card__box {
+  margin-top: 2rem;
+  outline: solid 0.2rem;
+  outline-color: #9a0007;
+  box-shadow: 1px 1px 30px -3px;
+  background: linear-gradient(#fe0000, #e8f40a);
+}
+.opinion-card__title {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-color: #000000;
+}
+.opinion-card__text {
+  color: #9a0007;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.opinion-card__label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #9a0007;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  text-decoration-color: #000000;
+}
+.opinion-card__label:hover {
+  color: #EBA900;
+}
+.opinion-card__button {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #9a0007;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-color: #000000;
+}
+.opinion-card__button:hover {
+  color: #EBA900;
+}
+
+.register-form {
+  @iclude abstract(column , center, center);
+  padding: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  box-shadow: 1px 1px 47px -3px #000000;
+  border-radius: 1rem 1rem 1rem 1rem;
+  outline: solid 0.3rem;
+  outline-color: #c35504;
+}
+.register-form__title {
+  text-align: center;
+  margin-top: 5vw;
+  color: #9a0007;
+}
+.register-form__flux {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-top: 5vw;
+  max-width: 100%;
+}
+.register-form__form {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-around;
+  max-width: 100%;
+}
+.register-form__field {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 5vw;
+  max-width: 100%;
+}
+.register-form__field--label {
+  display: flex;
+  justify-content: center;
+  color: #EBA900;
+}
+.register-form__field--input {
+  max-width: 100%;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.opinion-new {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  box-shadow: 1px 1px 47px -3px #000000;
+  border-radius: 1rem 1rem 1rem 1rem;
+  outline: solid 0.3rem;
+  outline-color: #c35504;
+}
+.opinion-new__title {
+  text-align: center;
+  margin-top: 2vw;
+  color: #9a0007;
+}
+.opinion-new__flux {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-top: 5vw;
+  max-width: 100%;
+}
+.opinion-new__form {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-around;
+  max-width: 100%;
+}
+.opinion-new__field {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 5vw;
+  max-width: 100%;
+}
+.opinion-new__field--label {
+  display: flex;
+  justify-content: center;
+  color: #EBA900;
+}
+.opinion-new__field--input {
+  max-width: 100%;
+}
+
+.app-flash-message {
+  background: #EBA900;
+  margin-top: 3rem;
+  text-align: center;
+  padding: 3rem;
+  color: #c35504;
+}
+
+.hide {
+  display: none;
+}
+
 .buton {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -12603,6 +12813,36 @@ ul {
 }
 .car-btn:hover {
   background: #000000;
+}
+
+.carimage {
+  width: 100%;
+}
+
+.custom-color {
+  color: #FFFAEF;
+  background-color: #EBA900;
+}
+.custom-color:hover {
+  color: #FFFAEF;
+  background-color: #c35504;
+}
+
+.custom-color-active {
+  color: #FFFAEF;
+  background-color: #9a0007;
+}
+.custom-color-active:hover {
+  color: #FFFAEF;
+  background-color: #9a0007;
+}
+
+.custom-color-previous-next {
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.5647058824);
+}
+.custom-color-previous-next:hover {
+  color: #c35504;
 }
 
 .logo {

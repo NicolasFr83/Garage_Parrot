@@ -21,8 +21,6 @@ class FormContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $formContactRepository->save($formContact, true);
-
-            return $this->redirectToRoute('app_home_page_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('form_contact/index.html.twig', [

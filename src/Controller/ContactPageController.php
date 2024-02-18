@@ -27,6 +27,7 @@ class ContactPageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $formContactRepository->save($formContact, true);
 
+            $this->addFlash('messageFormContactSent', 'Le formulaire de contact a bien été envoyé.');
             return $this->redirectToRoute('app_home_page_index', [], Response::HTTP_SEE_OTHER);
         }
 

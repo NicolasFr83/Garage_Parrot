@@ -1,0 +1,15 @@
+@use '../abstract/_all' as abstract
+@use "../base/_typos"
+@use "../base/_custom" as custom
+
+.app-flash-message
+    background: custom.$warning
+    margin-top: 3rem
+    text-align: center
+    padding: 3rem
+    @extend %text-2
+    color: custom.$secondary
+
+
+.hide
+    display: none
