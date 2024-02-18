@@ -1,0 +1,73 @@
+@use "../../abstract/_all" as abstract
+@use "../../base/_custom"
+@use "../../base/_typos"
+@use "../../base/_flux"
+    
+.opinion
+    &__rate
+        +abstract.d-flex(row, center, center)
+        &--colored-star
+            width: 2rem
+            fill: yellow
+        &--uncolored-star
+            width: 2rem
+
+
+.opinion-card
+    margin-top: 4rem
+    +abstract.d-flex(column, space-around, center)
+    @include abstract.responsive("litle-tablet")
+        flex-direction: row
+        background: custom.$dark
+        border-radius: 2rem
+        
+
+
+    &__box 
+        @extend %flux-2
+        margin-top: 2rem
+        outline: solid 0.2rem
+        outline-color: custom.$danger
+        box-shadow: 1px 1px 30px -3px
+        background: linear-gradient(#fe0000, #e8f40a) 
+
+    &__title
+        margin-top: 5rem
+        display: flex
+        justify-content: center
+        @extend %title-2
+        text-decoration: underline
+        text-underline-offset: 0.5rem
+        text-decoration-color: custom.$dark
+
+    &__text
+        color: custom.$danger
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+
+    &__label
+        +abstract.d-flex(row, center, center)
+        @extend %text-3
+        color: custom.$danger
+        text-decoration: underline
+        text-underline-offset: 0.2rem
+        text-decoration-color: custom.$dark
+
+        &:hover
+            color: custom.$warning
+            @extend %text-2
+
+
+    &__button
+        margin-bottom: 4rem
+        +abstract.d-flex(row, center, center)
+        @extend %text-2
+        color: custom.$danger
+        text-decoration: underline
+        text-underline-offset: 0.5rem
+        text-decoration-color: custom.$dark
+
+        &:hover
+            color: custom.$warning
+

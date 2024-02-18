@@ -55,6 +55,9 @@ class Opinions
     #[ORM\JoinColumn(nullable: false)]
     private ?Garage $garage = null;
 
+    #[ORM\Column]
+    private ?bool $isModerated = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -121,6 +124,18 @@ class Opinions
     public function setGarage(?Garage $garage): static
     {
         $this->garage = $garage;
+
+        return $this;
+    }
+
+    public function isIsModerated(): ?bool
+    {
+        return $this->isModerated;
+    }
+
+    public function setIsModerated(bool $isModerated): static
+    {
+        $this->isModerated = $isModerated;
 
         return $this;
     }

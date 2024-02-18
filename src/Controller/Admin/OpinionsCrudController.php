@@ -9,8 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class OpinionsCrudController extends AbstractCrudController
@@ -27,25 +27,28 @@ class OpinionsCrudController extends AbstractCrudController
             ->setEntityLabelInPlural('Avis')
             ->setPageTitle('index', '%entity_label_singular%')
             ->setPaginatorPageSize(10)
-            ->setDefaultSort(['id' => 'ASC']);
-    }
-
-    public function configureActions(Actions $actions): Actions
-    {
-        return $actions
-            ->remove(Crud::PAGE_INDEX, Action::NEW);
+            ->setDefaultSort(['createdAt' => 'DESC']);
     }
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id')
-            ->hideOnForm(),
-            TextField::new('name', "Nom"),
-            TextareaField::new('comment', 'Commentaire'),
-            IntegerField::new('score', 'Score'),
-            DateTimeField::new('createdAt', 'Crée le')
-                ->setFormTypeOption('disabled', true),
+        $fields = [
+            IdField::new('id')->hideOnForm(),
+            BooleanField::new('isModerated', 'Modération'),
+            DateTimeField::new('createdAt', 'Crée le')->setFormTypeOption('disabled', true),
+            TextField::new('name', 'Nom')->setFormTypeOption('disabled', true),
+            TextareaField::new('comment', 'Commentaire')->setFormTypeOption('disabled', true),
+            IntegerField::new('score', 'Score')->setFormTypeOption('disabled', true),
+            AssociationField::new('garage', 'Garage')->setFormTypeOption('disabled', true),
         ];
+
+        if ($pageName === Crud::PAGE_NEW) {
+            $fields[] = TextField::new('name', "Nom");
+            $fields[] = TextareaField::new('comment', 'Commentaire');
+            $fields[] = IntegerField::new('score', 'Score');
+            $fields[] = AssociationField::new('garage', 'Garage');
+        }
+
+        return $fields;
     }
 }

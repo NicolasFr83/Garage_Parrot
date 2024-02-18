@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\OpinionPage;
 use App\Form\OpinionPageType;
 use App\Repository\OpinionPageRepository;
+use App\Repository\OpinionsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,10 +16,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class OpinionPageController extends AbstractController
 {
     #[Route('/', name: 'app_opinion_page_index', methods: ['GET'])]
-    public function index(OpinionPageRepository $opinionPageRepository): Response
+    public function index(OpinionPageRepository $opinionPageRepository, OpinionsRepository $opinionsRepository): Response
     {
+        $moderatedOpinions = $opinionsRepository->findBy(['isModerated' => true]);
+
         return $this->render('opinion_page/index.html.twig', [
             'opinion_pages' => $opinionPageRepository->findAll(),
+            'moderatedOpinions' => $moderatedOpinions,
         ]);
     }
 
