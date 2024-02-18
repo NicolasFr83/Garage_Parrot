@@ -3,6 +3,10 @@
 {% block title %}Nos voitures d'occasions{% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('messageFormContactSentFromCars') %}
+        <p id='js_formContact_sent_from_cars' class='app-flash-message'>{{message}}</p>
+    {% endfor %}
+
     {% include 'cars_page/index.html.twig'%}
 
     <section class="car-search">
@@ -30,5 +34,8 @@
     </section>
     <section id="filtered_cars" class="carsFiltered">
         {% include 'cars/_cars.html.twig'%}
+    </section>
+    <section class="d-flex justify-content-center">
+        {{ knp_pagination_render(paginatedCars) }}
     </section>
 {% endblock %}

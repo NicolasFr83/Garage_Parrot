@@ -1,0 +1,24 @@
+@use "../base/_custom" as custom
+
+.custom-color
+    color: custom.$light
+    background-color: custom.$warning
+
+    &:hover
+        color: custom.$light
+        background-color: custom.$secondary
+
+.custom-color-active
+    color: custom.$light
+    background-color: custom.$danger
+
+    &:hover
+        color: custom.$light
+        background-color: custom.$danger
+
+.custom-color-previous-next
+    color: custom.$dark
+    background-color: custom.$info
+
+    &:hover
+        color: custom.$secondary

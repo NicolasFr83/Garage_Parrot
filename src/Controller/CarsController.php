@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/cars')]
 class CarsController extends AbstractController
@@ -25,6 +26,7 @@ class CarsController extends AbstractController
         CarsRepository $carsRepository,
         CarsPageRepository $carPageRepository,
         FormContactRepository $formContactRepository,
+        PaginatorInterface $paginatorInterface,
     ): Response
     {
         $minYear = $request->get('year');
@@ -32,6 +34,11 @@ class CarsController extends AbstractController
         $maxPrice = $request->get('price_max');
 
         $cars = $carsRepository->getFilteredCars($minYear, $maxPrice, $maxKms);
+        $paginatedCars = $paginatorInterface->paginate(
+            $cars,
+            $request->query->getInt('page', 1),
+            5
+        );
 
         if ($request->get('ajax')) {
             if (!$cars) {
@@ -41,6 +48,7 @@ class CarsController extends AbstractController
                     'debug' => $minYear,
                     'maxPrice' => $maxPrice,
                     'maxKms' => $maxKms,
+                    'paginatedCars' => $paginatedCars
                 ]);
             } else {
                 // Si des voitures sont trouvées
@@ -55,9 +63,10 @@ class CarsController extends AbstractController
         return $this->render('cars/index.html.twig', [
             'cars_pages' => $carPageRepository->findAll(),
             'cars' => $cars,
+            'paginatedCars' => $paginatedCars,
         ]);
     }
-
+    
     #[Route('/new', name: 'app_cars_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -82,11 +91,21 @@ class CarsController extends AbstractController
     public function show(Cars $car, FormContactRepository $formContactRepository, Request $request): Response
     {
         $formContact = new FormContact();
+
+        $carId = $car->getId();
+        $carBrand = $car->getBrand();
+
+        $subject = 'Informations concernant la voiture n° ' . $carId . ' de la marque ' . $carBrand;
+        $formContact->setSubject($subject);
+
         $form = $this->createForm(FormContactType::class, $formContact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $formContactRepository->save($formContact, true);
+
+            $this->addFlash('messageFormContactSentFromCars', 'Le formulaire de contact a bien été envoyé.');
+            return $this->redirectToRoute('app_cars_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('cars/show.html.twig', [
@@ -96,7 +115,6 @@ class CarsController extends AbstractController
             'formContact' => $form->createView(),
         ]);
     }
-
     #[Route('/{id}/edit', name: 'app_cars_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Cars $car, EntityManagerInterface $entityManager): Response
     {

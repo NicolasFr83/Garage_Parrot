@@ -1,21 +1,21 @@
 <ul class="cars">
     <h2 class="card-title card-car__title">Liste des véhicules trouvés</h5>
-    {% for car in cars %}
+    {% for paginatedCar in paginatedCars %}
         <li class="card-car">
             <div class="card">
-                <div class="card-body">
-                    <img class="carimage" src="{{ vich_uploader_asset(car, 'imageFile') }}" alt='photo de voitures'>
+                <div class="card-body carimage">
+                    <img class="carimage" src="{{ vich_uploader_asset(paginatedCar, 'imageFile') }}" alt='photo de voitures'>
                 </div>
                 <div class="list-group list-group-flush card-car__text">
                     <p class="cardescription--title">Prix du véhicule :
-                        {{car.price}}</p>
+                        {{paginatedCar.price}}</p>
                     <p class="cardescription--details">Année de mise en circulation:
-                        {{car.years}}</p>
+                        {{paginatedCar.years}}</p>
                     <p class="cardescription--details">Kilométrage :
-                        {{car.kilometers}}</p>
+                        {{paginatedCar.kilometers}}</p>
                 </div>
                 <div class="card-body">
-                    <a href="{{ path('app_cars_show', {'id': car.id})}}" class='link-to-show-car underline car-btn'>Voir la voiture</a>
+                    <a href="{{ path('app_cars_show', {'id': paginatedCar.id})}}" class='link-to-show-car underline car-btn'>Voir la voiture</a>
                 </div>
             </div>
         </li>
