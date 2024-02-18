@@ -9,13 +9,18 @@
     margin-top: 5rem
 
     &__cars-title
+        margin-left: 6rem
+        +abstract.responsive("tablet")
         @extend %title-2
         margin-top: 1rem
         text-decoration: underline
         text-underline-offset: 0.2rem
         text-decoration-color: custom.$dark
+        
 
     &__cars-text
+        @extend %text-2
+        +abstract.responsive("tablet")
         @extend %text-1
         margin-top: 1rem
         text-align: center

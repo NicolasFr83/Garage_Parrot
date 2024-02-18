@@ -16,6 +16,7 @@
         text-decoration-color: custom.$dark
 
     &__section-text
-        @extend %text-1
-        margin-top: 2rem
-        text-align: center
+        @extend %text-2
+        +abstract.responsive("tablet")
+            margin-top: 2rem
+            text-align: center

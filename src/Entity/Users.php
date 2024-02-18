@@ -22,7 +22,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 180, unique: true)]
     #[Assert\NotBlank(message: 'Veuillez renseigner votre email.')]
-    #[Assert\Email(message: 'Veuillez renseigner un email valide.')]
+    // #[Assert\Email(message: 'Veuillez renseigner un email valide.')]
     private ?string $email = null;
     
 
