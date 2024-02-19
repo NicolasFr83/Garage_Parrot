@@ -22,10 +22,10 @@ Installation
 
 Pour installer le projet, tapez les commandes ci-dessous dans votre terminal :
 
+    git clone (permet d'importer le projet sur votre ordinateur).
     php bin/console check:requirements (afin de vérifier que vous êtes prêt à importer le projet) .
     composer install (afin d'installer toutes les dépendances liées au projet).
     npm install (afin de pouvoir utiliser webpack encore).
-    git clone (permet d'importer le projet sur votre ordinateur).
     Renseigner une base de données dans le .env (afin de pouvoir récupérer les données).
     php bin/console doctrine:create:database (afin de créer votre base de données).
     php bin/console doctrine:migration:migrate (afin de récupérer les données du projet).
@@ -36,7 +36,8 @@ Lancement du server
 Pour lancer le server local, tapez dans votre terminal :
 
     symfony server:start ou symfony serve -d Vous pouvez maintenant vous rendre sur le lien renseigné afin d'avoir accès au projet en ligne. (Pensez à bien démarrer Apache et MySql via le panel de configuration en amont).
-
+    Puis lancer npm via la commande npm run watch.
+    
 Pour arrêter le server local, tapez dans votre terminal :
 
     symfony server:stop
