@@ -3,6 +3,12 @@
 Le garage Parrot est un garage situé à Toulouse, ouvert depuis 2021 par Mr Vincent Parrot , 
 Le garage propose un service réparation, entretien, carrosserie et meme un parc de vente
 de voitures exclusivement importé des Etats-Unis.
+Le site internet , permet de voir les services proposés par le garage , parc de voitures
+à vendre, le sevice réparation, des formumaires pour prendre contact avec le garage pour un rdv, 
+formulaires pré rempli par voitures a vendre,
+et une page opinions avec des avis clients.
+
+
 
 Avoir sur son ordinateur :
 
