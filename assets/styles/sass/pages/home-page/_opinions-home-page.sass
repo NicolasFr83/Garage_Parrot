@@ -10,15 +10,16 @@
     
     &__section-title
         @extend %title-2
+        @include abstract.d-flex(column, center, center)
         margin-top: 1rem
         text-decoration: underline 
         text-underline-offset: 0.2rem
         text-decoration-color: custom.$dark
+        text-align: center
         
     &__section-text
+        @include abstract.d-flex(column, center, center)
         @extend %text-2
+        margin-top: 2rem
         +abstract.responsive("tablet")
-            // @extend %text-1
-            margin-top: 1rem
-            text-align: center
-            color: green
+        text-align: center

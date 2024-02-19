@@ -14,14 +14,15 @@
 
 
 .opinion-card
+    @extend %flux-2
     margin-top: 4rem
+    background: #e2e2e2
+    border-radius: 2rem
     +abstract.d-flex(column, space-around, center)
     @include abstract.responsive("litle-tablet")
-        flex-direction: row
-        background: custom.$dark
-        border-radius: 2rem
-        
 
+    &__element
+        width: 70%
 
     &__box 
         @extend %flux-2
@@ -33,6 +34,7 @@
 
     &__title
         margin-top: 5rem
+        margin-bottom: 2rem
         display: flex
         justify-content: center
         @extend %title-2
@@ -45,6 +47,9 @@
         overflow: hidden
         text-overflow: ellipsis
         white-space: nowrap
+
+        &--date
+            margin-top: 1rem
 
     &__label
         +abstract.d-flex(row, center, center)
@@ -60,6 +65,7 @@
 
 
     &__button
+        margin-top: 5rem
         margin-bottom: 4rem
         +abstract.d-flex(row, center, center)
         @extend %text-2

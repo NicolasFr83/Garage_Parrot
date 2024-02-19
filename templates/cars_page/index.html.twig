@@ -12,7 +12,7 @@
         </section>
         {% if is_granted('ROLE_ADMIN') %}
             <div class="car-page">
-                <a class="button" href="{{ path('app_cars_page_edit', {'id': cars_page.id}) }}">Modifier</a>
+                <a class="buton" href="{{ path('app_cars_page_edit', {'id': cars_page.id}) }}">Modifier la page</a>
             </div>
         {% endif %}
     {% endfor %}

@@ -43,7 +43,7 @@ class Opinions
         minMessage: 'veuillez renseigner une note entre 1 et 5',
         maxMessage: 'veuillez renseigner une note entre 1 et 5'
     )]
-    #[Assert\Regex(pattern: '/^[0-9]+$/', message: 'Le Prix afficher ne doit contenir que des chiffres.')]
+    #[Assert\Regex(pattern: '/^[0-9]+$/', message: 'Le Score ne doit contenir que des chiffres.')]
     private ?int $score = null;
 
 

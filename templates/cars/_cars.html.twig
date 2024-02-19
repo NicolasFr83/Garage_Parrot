@@ -6,12 +6,16 @@
                 <div class="card-body carimage">
                     <img class="carimage" src="{{ vich_uploader_asset(paginatedCar, 'imageFile') }}" alt='photo de voitures'>
                 </div>
-                <div class="list-group list-group-flush card-car__text">
-                    <p class="cardescription--title">Prix du véhicule :
+                <div class="list-group list-group-flush">
+                    <p class="card-car__text">Marque :
+                        {{paginatedCar.brand}}</p>
+                    <p class="card-car__text">Modèle :
+                        {{paginatedCar.model}}</p>
+                    <p class="card-car__text">Prix du véhicule :
                         {{paginatedCar.price}}</p>
-                    <p class="cardescription--details">Année de mise en circulation:
+                    <p class="card-car__text">Année de mise en circulation:
                         {{paginatedCar.years}}</p>
-                    <p class="cardescription--details">Kilométrage :
+                    <p class="card-car__text">Kilométrage :
                         {{paginatedCar.kilometers}}</p>
                 </div>
                 <div class="card-body">

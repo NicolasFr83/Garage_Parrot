@@ -1,0 +1,50 @@
+@use "../abstract/_all" as abstract
+@use "../base/_custom" as custom
+@use "../base/_flux"
+@use "../base/_typos"
+
+.opinion-show
+    +abstract.d-flex(column, center, center)
+    background: custom.$secondary
+    box-shadow: 1px 1px 47px -3px custom.$dark
+    border-radius: 1rem 1rem 1rem 1rem
+    outline: solid 0.3rem
+    outline-color: custom.$dark
+    @extend %form-flux
+    margin-top: 5rem
+    
+    &--title
+        @extend %title-2
+        +abstract.d-flex(column, center, center)
+        margin-top: 1rem
+        
+
+
+    &--body
+        +abstract.d-flex(column, center, center)
+        margin-top: 1rem
+
+
+    &__text
+        +abstract.d-flex(column, center, center)
+        color: custom.$dark
+        margin-top: 1rem
+        @extend %text-2
+
+    &__buton
+        +abstract.d-flex(column, center, center)
+        margin-top: 2rem
+        margin-bottom: 2rem
+        box-shadow: 1px 1px 20px -3px custom.$dark
+        border-radius: 2px
+        padding: 1remm 1rem 1rem 1rem
+        outline: solid 0.1rem
+        outline-color: custom.$warning
+        background: custom.$secondary
+        color: custom.$dark
+        width: 9rem
+
+        
+        &:hover
+            color: custom.$light
+            background: custom.$dark

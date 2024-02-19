@@ -1,11 +1,16 @@
 {% block body %}
 
     <h1 class="opinion-card__title">Vos avis comptent !</h2>
+
+    <section class='opinion-card__button'>
+        <a href="{{ path('app_opinions_new') }}">Ajouter un avis</a>
+    </section>
+
         <ul class="opinion-card">
-            <li>
             {% for moderatedOpinion in moderatedOpinions %}
-                <div class="card mb-4 opinion-card__box" style="width: 18rem;">
-                    <div class="card-body">
+            <li class="opinion-card__element">
+                <div class="card  opinion-card__box">
+                    <div class="card-body opinion-card__contain ">
                             <p class="opinion-card__text"> Nom : {{ moderatedOpinion.name }}</p>
                             <p class="opinion-card__text">Commentaire : {{ moderatedOpinion.comment }}</p>
                             <div class="etoiles">
@@ -17,7 +22,7 @@
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                            <p class="opinion-card__text">Postez le  : {{ moderatedOpinion.createdAt ? moderatedOpinion.createdAt|date('Y-m-d H:i:s') : '' }}</p>
+                            <p class="opinion-card__text opinion-card__text--date">Postez le  : {{ moderatedOpinion.createdAt ? moderatedOpinion.createdAt|date('Y-m-d H:i:s') : '' }}</p>
                             <p class='opinion-card__label'>
                                 <a href="{{ path('app_opinions_show', {'id': moderatedOpinion.id}) }}">Voir</a>
                             </p>
@@ -26,7 +31,4 @@
                 <li>
             {% endfor %}
         </ul>
-    <section class='opinion-card__button'>
-            <a href="{{ path('app_opinions_new') }}">Ajouter un avis</a>
-    </section>
 {% endblock %}

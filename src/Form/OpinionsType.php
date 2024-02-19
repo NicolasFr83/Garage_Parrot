@@ -20,15 +20,15 @@ class OpinionsType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'row_attr' => [
-                    'class' => 'opinion-form__field'
+                    'class' => 'register-form__field'
                 ],
                 'label' => 'Nom',
                 'label_attr' => [
-                    'class' => 'opinion-form__field--label'
+                    'class' => 'register-form__field--label'
                 ],
                 'attr' => [
                     'placeholder' => 'Nom',
-                    'class' => 'opinion-form__field--input',
+                    'class' => 'register-form__field--input',
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -48,11 +48,11 @@ class OpinionsType extends AbstractType
             ])
             ->add('comment',TextareaType::class, [
                 'row_attr' => [
-                    'class' => 'opinion-form__field'
+                    'class' => 'register-form__field'
                 ],
                 'label' => 'commentaire',
                 'label_attr' => [
-                    'class' => 'opinion-form__field--label'
+                    'class' => 'register-form__field--label'
                 ],
                 'attr' => [
                     'placeholder' => 'Entrez votre Avis',
@@ -61,15 +61,15 @@ class OpinionsType extends AbstractType
             ])
             ->add('score', IntegerType::class, [
                 'row_attr' => [
-                    'class' => 'opinion-form__field'
+                    'class' => 'register-form__field'
                 ],
-                'label' => 'Score entre 1 et 5',
+                'label' => 'Note',
                 'label_attr' => [
-                    'class' => 'opinion-form__field--label'
+                    'class' => 'register-form__field--label'
                 ],
                 'attr' => [
-                    'placeholder' => 'cochez une étoile ',
-                    'class' => 'opinion-form__field--input',
+                    'placeholder' => 'Score entre 1 et 5',
+                    'class' => 'register-form__field--input',
                 ]
             ])
         ;
