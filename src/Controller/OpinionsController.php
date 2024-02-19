@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Opinions;
 use App\Form\OpinionsType;
 use App\Repository\GarageRepository;
+use App\Repository\OpenningGarageRepository;
 use App\Repository\OpinionsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +27,7 @@ class OpinionsController extends AbstractController
     }
 
     #[Route('/new', name: 'app_opinions_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, GarageRepository $garageRepository): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, GarageRepository $garageRepository, OpenningGarageRepository $openningGarageRepository): Response
     {        
         $opinion = new Opinions();
 
@@ -38,6 +39,12 @@ class OpinionsController extends AbstractController
         }
 
         $opinion->setIsModerated(false);
+
+        $openningHours = $openningGarageRepository->findOneBy(['openingday' => 'Lundi']);
+        $openningHourMorning = $openningHours->getOpeninghourmorning();
+        $closingHourMorning = $openningHours->getClosinghourmorning();
+        $openningHourAfternoon = $openningHours->getOpeninghourafternoon();
+        $closingHourAfternoon = $openningHours->getClosinghourafternoon();
         
         $form = $this->createForm(OpinionsType::class, $opinion);
         $form->handleRequest($request);
@@ -53,14 +60,30 @@ class OpinionsController extends AbstractController
         return $this->render('opinions/new.html.twig', [
             'opinion' => $opinion,
             'form' => $form,
+            'openningGarages' => $openningGarageRepository->findAll(),
+            'openningHourMorning' => $openningHourMorning,
+            'closingHourMorning' => $closingHourMorning,
+            'openningHourAfternoon' => $openningHourAfternoon,
+            'closingHourAfternoon' => $closingHourAfternoon,
         ]);
     }
 
     #[Route('/{id}', name: 'app_opinions_show', methods: ['GET'])]
-    public function show(Opinions $opinion): Response
+    public function show(Opinions $opinion, OpenningGarageRepository $openningGarageRepository): Response
     {
+        $openningHours = $openningGarageRepository->findOneBy(['openingday' => 'Lundi']);
+        $openningHourMorning = $openningHours->getOpeninghourmorning();
+        $closingHourMorning = $openningHours->getClosinghourmorning();
+        $openningHourAfternoon = $openningHours->getOpeninghourafternoon();
+        $closingHourAfternoon = $openningHours->getClosinghourafternoon();
+
         return $this->render('opinions/show.html.twig', [
             'opinion' => $opinion,
+            'openningGarages' => $openningGarageRepository->findAll(),
+            'openningHourMorning' => $openningHourMorning,
+            'closingHourMorning' => $closingHourMorning,
+            'openningHourAfternoon' => $openningHourAfternoon,
+            'closingHourAfternoon' => $closingHourAfternoon,
         ]);
     }
 

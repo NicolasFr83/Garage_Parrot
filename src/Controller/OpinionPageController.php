@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\OpinionPage;
 use App\Form\OpinionPageType;
+use App\Repository\OpenningGarageRepository;
 use App\Repository\OpinionPageRepository;
 use App\Repository\OpinionsRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,13 +17,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class OpinionPageController extends AbstractController
 {
     #[Route('/', name: 'app_opinion_page_index', methods: ['GET'])]
-    public function index(OpinionPageRepository $opinionPageRepository, OpinionsRepository $opinionsRepository): Response
+    public function index(OpinionPageRepository $opinionPageRepository, OpinionsRepository $opinionsRepository, OpenningGarageRepository $openningGarageRepository): Response
     {
         $moderatedOpinions = $opinionsRepository->findBy(['isModerated' => true]);
+
+        $openningHours = $openningGarageRepository->findOneBy(['openingday' => 'Lundi']);
+        $openningHourMorning = $openningHours->getOpeninghourmorning();
+        $closingHourMorning = $openningHours->getClosinghourmorning();
+        $openningHourAfternoon = $openningHours->getOpeninghourafternoon();
+        $closingHourAfternoon = $openningHours->getClosinghourafternoon();
 
         return $this->render('opinion_page/index.html.twig', [
             'opinion_pages' => $opinionPageRepository->findAll(),
             'moderatedOpinions' => $moderatedOpinions,
+            'openningGarages' => $openningGarageRepository->findAll(),
+            'openningHourMorning' => $openningHourMorning,
+            'closingHourMorning' => $closingHourMorning,
+            'openningHourAfternoon' => $openningHourAfternoon,
+            'closingHourAfternoon' => $closingHourAfternoon,
         ]);
     }
 

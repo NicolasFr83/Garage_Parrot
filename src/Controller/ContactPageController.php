@@ -13,16 +13,23 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Form\FormContactType;
 use App\Repository\FormContactRepository;
 use App\Entity\FormContact;
+use App\Repository\OpenningGarageRepository;
 
 #[Route('/contact/page')]
 class ContactPageController extends AbstractController
 {
     #[Route('/', name: 'app_contact_page_index', methods: ['GET', 'POST'])]
-    public function index(ContactPageRepository $contactPageRepository, Request $request, FormContactRepository $formContactRepository): Response
+    public function index(ContactPageRepository $contactPageRepository, Request $request, OpenningGarageRepository $openningGarageRepository, FormContactRepository $formContactRepository): Response
     {
         $formContact = new FormContact();
         $form = $this->createForm(FormContactType::class, $formContact);
         $form->handleRequest($request);
+
+        $openningHours = $openningGarageRepository->findOneBy(['openingday' => 'Lundi']);
+        $openningHourMorning = $openningHours->getOpeninghourmorning();
+        $closingHourMorning = $openningHours->getClosinghourmorning();
+        $openningHourAfternoon = $openningHours->getOpeninghourafternoon();
+        $closingHourAfternoon = $openningHours->getClosinghourafternoon();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $formContactRepository->save($formContact, true);
@@ -34,6 +41,11 @@ class ContactPageController extends AbstractController
         return $this->render('contact_page/index.html.twig', [
             'contact_pages' => $contactPageRepository->findAll(),
             'formContact' => $form->createView(),
+            'openningGarages' => $openningGarageRepository->findAll(),
+            'openningHourMorning' => $openningHourMorning,
+            'closingHourMorning' => $closingHourMorning,
+            'openningHourAfternoon' => $openningHourAfternoon,
+            'closingHourAfternoon' => $closingHourAfternoon,
         ]);
     }
 

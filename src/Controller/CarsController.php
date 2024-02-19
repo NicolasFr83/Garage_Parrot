@@ -10,6 +10,8 @@ use App\Repository\CarsRepository;
 use App\Repository\CarsPageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\FormContactRepository;
+use App\Repository\OpenningGarageRepository;
+use App\Repository\OptionsRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,6 +29,7 @@ class CarsController extends AbstractController
         CarsPageRepository $carPageRepository,
         FormContactRepository $formContactRepository,
         PaginatorInterface $paginatorInterface,
+        OpenningGarageRepository $openningGarageRepository,
     ): Response
     {
         $minYear = $request->get('year');
@@ -39,6 +42,12 @@ class CarsController extends AbstractController
             $request->query->getInt('page', 1),
             5
         );
+
+        $openningHours = $openningGarageRepository->findOneBy(['openingday' => 'Lundi']);
+        $openningHourMorning = $openningHours->getOpeninghourmorning();
+        $closingHourMorning = $openningHours->getClosinghourmorning();
+        $openningHourAfternoon = $openningHours->getOpeninghourafternoon();
+        $closingHourAfternoon = $openningHours->getClosinghourafternoon();
 
         if ($request->get('ajax')) {
             if (!$cars) {
@@ -64,6 +73,11 @@ class CarsController extends AbstractController
             'cars_pages' => $carPageRepository->findAll(),
             'cars' => $cars,
             'paginatedCars' => $paginatedCars,
+            'openningGarages' => $openningGarageRepository->findAll(),
+            'openningHourMorning' => $openningHourMorning,
+            'closingHourMorning' => $closingHourMorning,
+            'openningHourAfternoon' => $openningHourAfternoon,
+            'closingHourAfternoon' => $closingHourAfternoon,
         ]);
     }
     
@@ -88,15 +102,21 @@ class CarsController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_cars_show', methods: ['GET', 'POST'])]
-    public function show(Cars $car, FormContactRepository $formContactRepository, Request $request): Response
+    public function show(Cars $car, FormContactRepository $formContactRepository, OpenningGarageRepository $openningGarageRepository, OptionsRepository $optionsRepository, Request $request): Response
     {
         $formContact = new FormContact();
 
         $carId = $car->getId();
         $carBrand = $car->getBrand();
+        $carOptions = $car->getOptions();
 
         $subject = 'Informations concernant la voiture n° ' . $carId . ' de la marque ' . $carBrand;
         $formContact->setSubject($subject);
+        $openningHours = $openningGarageRepository->findOneBy(['openingday' => 'Lundi']);
+        $openningHourMorning = $openningHours->getOpeninghourmorning();
+        $closingHourMorning = $openningHours->getClosinghourmorning();
+        $openningHourAfternoon = $openningHours->getOpeninghourafternoon();
+        $closingHourAfternoon = $openningHours->getClosinghourafternoon();
 
         $form = $this->createForm(FormContactType::class, $formContact);
         $form->handleRequest($request);
@@ -113,6 +133,12 @@ class CarsController extends AbstractController
             'form_contact_contain' => $formContact,
             'form' => $form,
             'formContact' => $form->createView(),
+            'options' => $carOptions,
+            'openningGarages' => $openningGarageRepository->findAll(),
+            'openningHourMorning' => $openningHourMorning,
+            'closingHourMorning' => $closingHourMorning,
+            'openningHourAfternoon' => $openningHourAfternoon,
+            'closingHourAfternoon' => $closingHourAfternoon,
         ]);
     }
     #[Route('/{id}/edit', name: 'app_cars_edit', methods: ['GET', 'POST'])]

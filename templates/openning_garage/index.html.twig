@@ -1,0 +1,12 @@
+<div class="openningGarageSection__days">
+    <img src="{{ asset('images/Garage_parrot.png')}} " alt="logo-garage" class="openningGarageSection__logo" >
+    <div class="openningGarageSection__open">
+        <a class="openningGarageSection__title">Téléphone : 04 98 33 00 00</a>
+        <p class="openningGarageSection__title">Ouverture du garage : </p>
+        <ul>
+            {% for openningGarage in openningGarages %}
+                <li>{{ openningGarage.openingday }} : {{ openningHourMorning }} - {{ closingHourMorning }} {{ openningHourAfternoon }} - {{ closingHourAfternoon }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

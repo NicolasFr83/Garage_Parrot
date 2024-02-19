@@ -1,0 +1,28 @@
+@use "../abstract/_all" as abstract
+@use "../base/_typos" 
+@use "../base/_custom"
+
+.openningGarageSection
+    background-color: custom.$secondary
+    padding-top: 1rem
+    +abstract.d-flex(row, center, center)
+    margin-top: 2rem
+
+    &__days
+        background-color: custom.$warning
+        color: custom.$light
+        width: 70%
+        border-radius: 1rem
+        +abstract.d-flex(column, center, center)
+        +abstract.responsive('litle-tablet')
+            +abstract.d-flex(row, space-around, center)
+
+        
+    &__logo
+        max-width: 40%
+        margin: 3%
+        +abstract.responsive('litle-tablet')
+            max-width: 20%
+
+    &__open
+        +abstract.d-flex(column, center, center)
