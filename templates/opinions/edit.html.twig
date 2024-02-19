@@ -3,11 +3,10 @@
 {% block title %}Edit Opinions{% endblock %}
 
 {% block body %}
-    <h1>Edit Opinions</h1>
+    <h1 class="opinion-show--title">Rédigez votre opinion</h1>
 
     {{ include('opinions/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_opinions_index') }}">back to list</a>
-
-    {{ include('opinions/_delete_form.html.twig') }}
+<div class="opinion-new">
+    <a class ="opinion-show__buton" href="{{ path('app_opinion_page_index') }}">Retour sur la page</a>
+</div>
 {% endblock %}

@@ -27,10 +27,10 @@
         
 
     &__text
-        display: flex
-        align-items: center
-        @extend %text-3
-
+        margin-top: 2rem
+        @include abstract.d-flex(column, center, center)
+        color: custom.$danger
+        @extend %title-2
 
 .cars
     @include abstract.d-flex(column, center, center)

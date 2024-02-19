@@ -7,11 +7,13 @@
     @include abstract.d-flex(column, center, center)
     @extend %flux-1
     margin-top: 5rem
+    text-align: center
 
     &__cars-title
-        margin-left: 6rem
-        +abstract.responsive("tablet")
+        text-align: center
+        @include abstract.d-flex(column, center, center) 
         @extend %title-2
+        // +abstract.responsive("tablet")
         margin-top: 1rem
         text-decoration: underline
         text-underline-offset: 0.2rem
@@ -25,3 +27,5 @@
         margin-top: 1rem
         text-align: center
         
+    &__car-image
+        width: 100%

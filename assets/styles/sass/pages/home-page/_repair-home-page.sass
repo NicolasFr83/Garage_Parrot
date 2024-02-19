@@ -5,7 +5,7 @@
 
 .repair
     @include abstract.d-flex(column, center, center)
-    @extend %flux-1
+    @extend %flux-2
     margin-top: 5rem
 
     &__section-title
@@ -18,5 +18,5 @@
     &__section-text
         @extend %text-2
         +abstract.responsive("tablet")
-            margin-top: 2rem
-            text-align: center
+        margin-top: 3rem
+        text-align: center

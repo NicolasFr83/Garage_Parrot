@@ -11,7 +11,7 @@
 
     &__title
         @extend %title-1
-        margin-top: 1rem
+        margin-top: 3rem
         text-decoration: underline 
         text-underline-offset: 0.5rem
         text-decoration-color: custom.$dark
@@ -19,8 +19,10 @@
 
 
     &__text
+        @include abstract.d-flex(column, center, center)
+        align-items: center
         @extend %text-2
-        margin-top: 5rem
+        margin-top: 2rem
         text-align: center
 
     &__buton
