@@ -28,7 +28,8 @@ class CarsFixtures extends Fixture implements DependentFixtureInterface
                 ->setBrand($this->getReference(BrandsFixtures::BRAND_REFERENCE))
                 ->addOption($this->getReference(OptionsFixtures::OPTION_REFERENCE))
                 ->setFuel($this->getReference(FuelsFixtures::FUEL_REFERENCE))
-                ->setType($this->getReference(TypesFixtures::TYPE_REFERENCE));
+                ->setType($this->getReference(TypesFixtures::TYPE_REFERENCE))
+                ->setModel($this->getReference(ModelsFixtures::MODEL_REFERENCE));
 
             $manager->persist($car);
         }
@@ -42,6 +43,7 @@ class CarsFixtures extends Fixture implements DependentFixtureInterface
             OptionsFixtures::class,
             FuelsFixtures::class,
             TypesFixtures::class,
+            ModelsFixtures::class,
         ];
     }
 }

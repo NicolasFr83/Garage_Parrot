@@ -20,6 +20,7 @@ class OpinionsFixtures extends Fixture implements DependentFixtureInterface
             $Opinion->setName($faker->text(15))
                 ->setComment($faker->text(200))
                 ->setScore($faker->numberBetween(1,5))
+                ->setIsModerated(false)
                 ->setGarage($this->getReference(GarageFixtures::GARAGE_REFERENCE));
 
             $manager->persist($Opinion);
