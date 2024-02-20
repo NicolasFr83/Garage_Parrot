@@ -49,3 +49,5 @@ Pour lancer les tests, tapez dans votre terminal :
     php bin/phpunit --testdox (ajoutez --testdox afin d'avoir un rendu plus explicite).
 
 Comment consulter le site en ligne
+
+https://garage-parrot.store
