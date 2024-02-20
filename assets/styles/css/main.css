@@ -11997,7 +11997,7 @@ ul {
 
 .opinion-page__title, .contact-page__title, .main__title {
   font-family: "Cinzel", serif;
-  font-size: 7vw;
+  font-size: 3rem;
   color: #9a0007;
 }
 
@@ -12013,13 +12013,13 @@ ul {
   color: #000000;
 }
 
-.opinion-show__text, .app-flash-message, .opinion-card__label:hover, .opinion-card__button, .login-form__email--label, .login-form__email--input, .login-form__password--label, .login-form__password--input, .login-form__button, .opinion-page__text, .contact-page__text, .car-page__text, .opinion__section-text, .used__cars-text, .repair__section-text, .main__welcome {
+.app-flash-message, .opinion-card__label:hover, .opinion-card__button, .login-form__email--label, .login-form__email--input, .login-form__password--label, .login-form__password--input, .login-form__button, .opinion-page__text, .contact-page__text, .car-page__text, .opinion__section-text, .used__cars-text, .repair__section-text, .main__welcome {
   font-family: "Crimson Text", serif;
   font-size: 2rem;
   color: #000000;
 }
 
-.no-car-found--info, .opinion-new__field--label, .opinion-new__field--input, .register-form__field--label, .register-form__field--input, .opinion-card__label, .form-contact__buton, .form-contact__field--label, .form-contact__field--input, .opinion-page-form__field--label, .opinion-page-form__field--input, .contact-page-form__field--label, .contact-page-form__field--input, .car-search__reset, .car-search-text, .car-page-form__field--label, .car-page-form__field--input, .home-page-form__field--label, .home-page-form__field--input {
+.no-car-found--info, .opinion-show__text, .opinion-new__field--label, .opinion-new__field--input, .register-form__field--label, .register-form__field--input, .opinion-card__label, .form-contact__buton, .form-contact__field--label, .form-contact__field--input, .opinion-page-form__field--label, .opinion-page-form__field--input, .contact-page-form__field--label, .contact-page-form__field--input, .car-search__reset, .car-search-text, .car-page-form__field--label, .car-page-form__field--input, .home-page-form__field--label, .home-page-form__field--input {
   font-family: "Crimson Text", serif;
   font-size: 1.3rem;
   color: #000000;
@@ -12054,6 +12054,15 @@ ul {
   max-width: 70%;
   max-width: 50%;
 }
+@media screen and (min-width: 482px) {
+  .main-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .main {
   margin-top: 2rem;
   display: flex;
@@ -12067,8 +12076,11 @@ ul {
   text-decoration: underline;
   text-underline-offset: 0.5rem;
   text-decoration-color: #000000;
-  display: inline;
-  padding: 3rem;
+}
+@media screen and (min-width: 768px) {
+  .main__title {
+    padding: 3rem;
+  }
 }
 .main__welcome {
   margin-top: 2rem;
@@ -12106,7 +12118,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
   text-align: center;
 }
 .used__cars-title {
@@ -12275,6 +12287,7 @@ ul {
   margin-top: 5rem;
   margin-bottom: 1rem;
   border-radius: 2rem;
+  text-align: center;
 }
 .car-search__section {
   background: #c35504;
@@ -12394,7 +12407,7 @@ ul {
   justify-content: center;
   align-items: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
 }
 .contact-page__buton {
@@ -12615,11 +12628,12 @@ ul {
 }
 .opinion-card__element {
   width: 70%;
+  margin-right: 29px;
 }
 .opinion-card__box {
   margin-top: 2rem;
-  outline: solid 0.2rem;
-  outline-color: #9a0007;
+  outline: solid 0.4rem;
+  outline-color: #000000;
   box-shadow: 1px 1px 30px -3px;
   background: linear-gradient(#fe0000, #e8f40a);
 }
@@ -12708,6 +12722,7 @@ ul {
   justify-content: space-between;
   margin-bottom: 5vw;
   max-width: 100%;
+  align-items: center;
 }
 .register-form__field--label {
   display: flex;
@@ -12737,6 +12752,7 @@ ul {
   border-radius: 1rem 1rem 1rem 1rem;
   outline: solid 0.3rem;
   outline-color: #c35504;
+  max-width: 70%;
 }
 .opinion-new__title {
   text-align: center;
@@ -12793,6 +12809,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background: #c35504;
   box-shadow: 1px 1px 47px -3px #000000;
   border-radius: 1rem 1rem 1rem 1rem;
@@ -12813,6 +12830,7 @@ ul {
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+  padding-left: 0rem;
 }
 .opinion-show__text {
   display: flex;
@@ -12890,7 +12908,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   box-shadow: 1px 1px 20px -3px #000000;
-  border-radius: 1rem 2rem 1rem 1rem;
+  border-radius: 1rem 1rem 1rem 1rem;
   max-width: 80%;
   margin-bottom: 5rem;
   outline: solid 0.7rem;
@@ -12903,7 +12921,8 @@ ul {
   text-underline-offset: 0.5rem;
   text-decoration-color: #000000;
   margin-top: 5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 .card-car__text {
   margin-top: 2rem;
@@ -12973,7 +12992,7 @@ ul {
 }
 
 .logo {
-  width: 20vw;
+  width: 13rem;
 }
 
 .footer-custom {
