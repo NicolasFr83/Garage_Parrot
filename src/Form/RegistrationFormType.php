@@ -8,7 +8,6 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -84,21 +83,6 @@ class RegistrationFormType extends AbstractType
                 'placeholder' => 'Nom',
                 'class' => 'register-form__field--input',
             ],
-            // 'constraints' => [
-            //     new NotBlank([
-            //         'message' => 'Veuillez renseigner un nom',
-            //     ]),
-            //     new Length([
-            //         'min' => 2,
-            //         'minMessage' => 'Votre nom doit contenir au moins 2 caractères',
-            //         'max' => 50,
-            //         'maxMessage' => 'Votre nom ne doit pas dépasser 50 caractères',
-            //     ]),
-            //     new Regex([
-            //         'pattern' => '/^[a-zA-Z]+$/',
-            //         'message' => 'Votre nom ne doit contenir que des lettres'
-            //     ]),
-            // ],
         ])
         ->add('firstname', TextType::class, [
             'row_attr' => [

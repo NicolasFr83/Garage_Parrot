@@ -38,12 +38,17 @@ class Opinions
 
     #[ORM\Column(length:1)]
     #[Assert\NotBlank(message: 'Veuillez renseigner une note entre 1 et 5.')]
-    #[Assert\Length(
-        min: 1, max: 1,
-        minMessage: 'veuillez renseigner une note entre 1 et 5',
-        maxMessage: 'veuillez renseigner une note entre 1 et 5'
+    #[Assert\LessThanOrEqual(
+        value: 5,
+        message: 'Veuillez renseigner une note entre 1 et 5',
+        // maxMessage: 'veuillez renseigner une note entre 1 et 5'
     )]
-    #[Assert\Regex(pattern: '/^[0-9]+$/', message: 'Le Score ne doit contenir que des chiffres.')]
+    #[Assert\GreaterThan(
+        value: 1,
+        message: 'Veuillez renseigner une note entre 1 et 5'
+    )]
+
+    #[Assert\Regex(pattern: '/^[1-5]+$/', message: 'Le Score ne doit contenir que des chiffres.')]
     private ?int $score = null;
 
 

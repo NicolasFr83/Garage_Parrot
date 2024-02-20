@@ -5,7 +5,6 @@ namespace App\Repository;
 use App\Entity\ContactPage;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use App\Entity\FormContact;
 
 /**
  * @extends ServiceEntityRepository<ContactPage>

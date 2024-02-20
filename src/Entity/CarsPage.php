@@ -21,7 +21,7 @@ class CarsPage
     #[Assert\Length(
         min: 2, max: 255,
         minMessage: 'Le titre  doit être de 2 caractères minimum.',
-        maxMessage: "Le titre  ne doit pas dépasser 255 caractères"
+        maxMessage: "Le titre  ne doit pas dépasser 255 caractères."
     )]
     private ?string $title = null;
 
@@ -31,7 +31,7 @@ class CarsPage
     #[Assert\Length(
         min: 10, max: 1255,
         minMessage: 'La description de la page doit être de 10 caractères minimum.',
-        maxMessage: "La description de la page ne doit pas dépasser 1255 caractères"
+        maxMessage: "La description de la page ne doit pas dépasser 1255 caractères."
     )]
     private ?string $carPresentationText = null;
 
