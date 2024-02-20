@@ -1,0 +1,20 @@
+@use "../abstract/_all" as abstract
+@use "../base/_typos"
+@use "../base/_custom" as custom
+
+.no-car-found
+    +abstract.d-flex(column, center, center)
+    margin-top: 2rem
+    margin-bottom: 2rem
+    background: custom.$info
+
+    &--title
+        @extend %title-2
+        text-decoration: underline 
+        text-underline-offset: 0.5rem
+        text-decoration-color: custom.$dark
+
+    &--info
+        @extend %text-3
+        text-align: center
+

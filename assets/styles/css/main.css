@@ -12001,7 +12001,7 @@ ul {
   color: #9a0007;
 }
 
-.card-car__title, .card-car__text, .opinion-show--title, .opinion-new__title, .register-form__title, .opinion-card__title, .login-form__title, .form-contact__title, .opinion-page-form__title, .contact-page-form__title, .car-page-form__title, .car-page__title, .home-page-form__title, .opinion__section-title, .used__cars-title, .repair__section-title {
+.card-car__title, .card-car__text, .no-car-found--title, .opinion-show--title, .opinion-new__title, .register-form__title, .opinion-card__title, .login-form__title, .form-contact__title, .opinion-page-form__title, .contact-page-form__title, .car-page-form__title, .car-page__title, .home-page-form__title, .opinion__section-title, .used__cars-title, .repair__section-title {
   font-family: "Cinzel", serif;
   font-size: 3, 5vw;
   color: #9a0007;
@@ -12019,7 +12019,7 @@ ul {
   color: #000000;
 }
 
-.opinion-new__field--label, .opinion-new__field--input, .register-form__field--label, .register-form__field--input, .opinion-card__label, .form-contact__field--label, .form-contact__field--input, .opinion-page-form__field--label, .opinion-page-form__field--input, .contact-page-form__field--label, .contact-page-form__field--input, .car-search__reset, .car-search-text, .car-page-form__field--label, .car-page-form__field--input, .home-page-form__field--label, .home-page-form__field--input {
+.no-car-found--info, .opinion-new__field--label, .opinion-new__field--input, .register-form__field--label, .register-form__field--input, .opinion-card__label, .form-contact__buton, .form-contact__field--label, .form-contact__field--input, .opinion-page-form__field--label, .opinion-page-form__field--input, .contact-page-form__field--label, .contact-page-form__field--input, .car-search__reset, .car-search-text, .car-page-form__field--label, .car-page-form__field--input, .home-page-form__field--label, .home-page-form__field--input {
   font-family: "Crimson Text", serif;
   font-size: 1.3rem;
   color: #000000;
@@ -12033,14 +12033,14 @@ ul {
     transform: rotate(360deg);
   }
 }
-.opinion, .used {
+.opinion {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   max-width: 70%;
 }
 
-.opinion-card, .opinion-card__box, .opinion-page, .contact-page, .car-search, .car-page, .repair, .main {
+.opinion-card, .opinion-card__box, .opinion-page, .contact-page, .car-search, .car-page, .used, .repair, .main {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -12480,6 +12480,12 @@ ul {
   align-items: center;
 }
 
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .form-contact__title {
   display: flex;
   flex-direction: column;
@@ -12505,6 +12511,23 @@ ul {
   flex-direction: column;
   align-items: stretch;
   justify-content: space-around;
+}
+.form-contact__buton {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  box-shadow: 1px 1px 20px -3px #000000;
+  border-radius: 10px;
+  outline: solid 0.1rem;
+  outline-color: #EBA900;
+  background: #c35504;
+  color: #000000;
+}
+.form-contact__buton:hover {
+  color: #FFFAEF;
+  background: #000000;
 }
 .form-contact__field {
   display: flex;
@@ -12818,14 +12841,32 @@ ul {
   background: #000000;
 }
 
+.no-car-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.5647058824);
+}
+.no-car-found--title {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-color: #000000;
+}
+.no-car-found--info {
+  text-align: center;
+}
+
 .buton {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  padding: 0.5rem;
   box-shadow: 1px 1px 20px -3px #000000;
-  border-radius: 1px;
-  padding: 1remm 1rem 1rem 1rem;
+  border-radius: 10px;
   outline: solid 0.1rem;
   outline-color: #EBA900;
   background: #c35504;
