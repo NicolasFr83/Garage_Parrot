@@ -35,9 +35,6 @@
     <section id="filtered_cars" class="carsFiltered">
         {% include 'cars/_cars.html.twig'%}
     </section>
-    <section class="d-flex justify-content-center">
-        {{ knp_pagination_render(paginatedCars) }}
-    </section>
     <section class="openningGarageSection">
         {% include "openning_garage/index.html.twig" %}
     </section>

@@ -16,7 +16,7 @@
         </section>
     {% if is_granted('ROLE_ADMIN') %}
         <div class="opinion-page">
-            <a class="button" href="{{ path('app_opinion_page_edit', {'id': opinion_page.id}) }}">Modifier</a>
+            <a class="buton" href="{{ path('app_opinion_page_edit', {'id': opinion_page.id}) }}">Modifier la page</a>
         </div>
     {% endif %}
     {% endfor %}
