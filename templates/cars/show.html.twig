@@ -29,7 +29,9 @@
 			</div>
 		</div>
 		<div class="card-body cars">
-			<a class="car-btn" href="{{ path('app_cars_index') }}">Retouner sur la recherche</a>
+			<button type="button" class="btn btn-danger buton car-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			Nous contacter pour la voiture
+			</button>
 		</div>
 	</div>
 </section>
@@ -38,9 +40,7 @@
 
 	<!-- Modal -->
 <div class="cars">
-	<button type="button" class="btn btn-danger buton car-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-		Nous contacter
-	</button>
+	<a class="car-btn" href="{{ path('app_cars_index') }}">Retouner sur la recherche</a>
 </div>
 	<div class="modal fade js-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog form-contact">
