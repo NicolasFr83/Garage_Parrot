@@ -27,7 +27,6 @@ class CarsController extends AbstractController
         Request $request,
         CarsRepository $carsRepository,
         CarsPageRepository $carPageRepository,
-        FormContactRepository $formContactRepository,
         PaginatorInterface $paginatorInterface,
         OpenningGarageRepository $openningGarageRepository,
     ): Response
@@ -50,20 +49,22 @@ class CarsController extends AbstractController
         $closingHourAfternoon = $openningHours->getClosinghourafternoon();
 
         if ($request->get('ajax')) {
+            $paginatedCarsAjax = $paginatorInterface->paginate(
+                $cars,
+                $request->query->getInt('page', 1),
+                50
+            );
+
             if (!$cars) {
                 // Si aucune voiture n'est trouvée
                 return new JsonResponse([
                     'content' => $this->renderView('cars/_no_cars_found.html.twig'),
-                    'debug' => $minYear,
-                    'maxPrice' => $maxPrice,
-                    'maxKms' => $maxKms,
-                    'paginatedCars' => $paginatedCars
                 ]);
             } else {
                 // Si des voitures sont trouvées
                 return new JsonResponse([
                     'content' => $this->renderView('cars/_cars.html.twig', [
-                        'cars' => $cars,
+                        'paginatedCars' => $paginatedCarsAjax
                     ]),
                 ]);
             }
@@ -80,6 +81,7 @@ class CarsController extends AbstractController
             'closingHourAfternoon' => $closingHourAfternoon,
         ]);
     }
+    
     
     #[Route('/new', name: 'app_cars_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
