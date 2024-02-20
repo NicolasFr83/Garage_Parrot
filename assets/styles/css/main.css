@@ -12055,13 +12055,14 @@ ul {
   max-width: 50%;
 }
 .main {
-  margin-top: 5rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .main__title {
+  text-align: center;
   margin-top: 1rem;
   text-decoration: underline;
   text-underline-offset: 0.5rem;
@@ -12070,6 +12071,7 @@ ul {
   padding: 3rem;
 }
 .main__welcome {
+  margin-top: 2rem;
   margin-top: 5rem;
   text-align: center;
 }
