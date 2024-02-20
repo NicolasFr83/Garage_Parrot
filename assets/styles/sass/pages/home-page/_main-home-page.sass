@@ -3,23 +3,27 @@
 @use "../../base/_flux" as flux
 @use "../../base/_custom" as custom
 
+.main-title
+    +abstract.responsive('big-phone')
+        +abstract.d-flex(row, center, center)
+
 .main
     @extend %flux-2
-    margin-top: 5rem
+    margin-top: 2rem
     @include abstract.d-flex(column, center, center)
 
     &__title
+        text-align: center
         @extend %title-1
         margin-top: 1rem
         text-decoration: underline 
         text-underline-offset: 0.5rem
         text-decoration-color: custom.$dark
-        display: inline
-        padding: 3rem
-
-
+        +abstract.responsive('litle-tablet')
+            padding: 3rem
 
     &__welcome
+        margin-top: 2rem
         @extend %text-2
         +abstract.responsive("tablet")
         margin-top: 5rem            
